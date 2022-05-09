@@ -1,0 +1,28 @@
+/* News */
+.card-body {
+  padding: 1rem 20px;
+  height: 100%;
+}
+@media only screen and (min-width: 568px) {
+  .card .card-body .card-text:last-child {
+    position: absolute;
+    bottom: 2vw;
+  }
+}
+
+@media only screen and (max-width: 568px) {
+  .card-body {
+    padding: 20px;
+    padding-top: 0;
+  }
+}
+form .form-control,
+form .form-select {
+  height: 50px;
+}
+.calender-svg {
+  margin: 0 1.5rem;
+}
+.form-select {
+  background-position: left 1.5rem center;
+}

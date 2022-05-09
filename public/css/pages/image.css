@@ -1,0 +1,7 @@
+p {
+    font-size: 14px;
+}
+
+#image-list > * {
+    padding: 0.5rem 1.25rem;
+}

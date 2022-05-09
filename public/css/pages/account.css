@@ -1,0 +1,19 @@
+table td {
+  font-size: 14px;
+}
+ul li a {
+  font-size: 14px;
+}
+
+ul li.list-group-item.active {
+  font-weight: bold;
+}
+
+p {
+  font-size: 14px;
+}
+@media only screen and (max-width: 568px) {
+  .card .card-body {
+    padding: 1rem 20px !important;
+  }
+}
