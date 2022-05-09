@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="76" height="76" viewBox="0 0 76 76">
-  <g id="آیکون" transform="translate(-639 -196)">
-    <rect id="Rectangle_1967" data-name="Rectangle 1967" width="76" height="76" rx="38" transform="translate(639 196)" fill="#f7f7f7"/>
-    <g id="fi-rr-user" transform="translate(661 216)">
-      <path id="Path_15844" data-name="Path 15844" d="M15,18A9,9,0,1,0,6,9a9,9,0,0,0,9,9ZM15,3A6,6,0,1,1,9,9a6,6,0,0,1,6-6Z" transform="translate(1.5)" fill="#197b30"/>
-      <path id="Path_15845" data-name="Path 15845" d="M16.5,14A13.515,13.515,0,0,0,3,27.5a1.5,1.5,0,1,0,3,0,10.5,10.5,0,1,1,21,0,1.5,1.5,0,0,0,3,0A13.515,13.515,0,0,0,16.5,14Z" transform="translate(0 7)" fill="#197b30"/>
-    </g>
-  </g>
-</svg>
