@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-sm-8"><h2>لیست <b>کلانشهرهای کاربر</b></h2></div>
                                         <div class="col-sm-4">
-                                            <a href="{{route('manager.users.addcapital',$user_id)}}">
+                                            <a href="{{route(auth()->user()->role->title.'.users.addcapital',$user_id)}}">
                                             <button type="button" class="btn btn-green mb-2">افزودن کلانشهر برای کاربر</button>
                                             </a>
                                             <a href="{{ URL::previous() }}">
@@ -63,7 +63,7 @@
                                             <td>
 
 
-                                                <form class="d-inline" action="{{route('manager.users.delete',$usercapital->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.users.delete',$usercapital->id)}}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                 <button class="btn btn-danger" type="submit">حذف</button>

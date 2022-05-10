@@ -30,7 +30,7 @@
           </a>
           @endguest
           @auth
-          <a href="{{ route('manager.profile') }}"
+          <a href="{{ route(auth()->user()->role->title.'.profile') }}"
           ><span class="user-svg"></span> پنل کاربری
           </a> 
           @endauth
@@ -210,7 +210,7 @@
           </a>
           @endguest
           @auth
-          <a href="{{ route('manager.profile') }}"
+          <a href="{{ route(auth()->user()->role->title.'.profile') }}"
           ><span class="user-svg"></span> پنل کاربری
           </a> 
           @endauth

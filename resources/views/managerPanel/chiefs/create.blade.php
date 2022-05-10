@@ -25,7 +25,7 @@
             <div class="row g-3">
                 @include('managerpanel.dashboard')
                 <div class="col-12 col-lg-9">
-                    <a href="{{route('manager.chiefs')}}">
+                    <a href="{{route(auth()->user()->role->title.'.chiefs')}}">
                         <button class="btn btn-info">بازگشت به لیست کلانشهرها</button>
                     </a>
                     <div class="card">
@@ -33,7 +33,7 @@
 
                             @include('layouts.errors')
 
-                            <form action="{{ route('manager.chiefs.store') }}" method="POST" class="w-lg-50 mb-4">
+                            <form action="{{ route(auth()->user()->role->title.'.chiefs.store') }}" method="POST" class="w-lg-50 mb-4">
                                 @csrf
 
 

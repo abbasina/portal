@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-sm-8"><h2>لیست <b>کلانشهرها</b></h2></div>
                                         <div class="col-sm-4">
-                                            <a href="{{route('manager.confirmers.create')}}">
+                                            <a href="{{route(auth()->user()->role->title.'.confirmers.create')}}">
                                             <button type="button" class="btn btn-info">افزودن کلانشهر</button>
                                             </a>
                                         </div>
@@ -55,10 +55,10 @@
                                             <td>{{$confirmer->id}}</td>
                                             <td>{{$confirmer->name}}</td>
                                             <td>
-                                                <a href="{{ route('manager.confirmers.edit',$confirmer->id) }}" class="btn btn-primary" title="Add">ویرایش</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.confirmers.edit',$confirmer->id) }}" class="btn btn-primary" title="Add">ویرایش</a>
 
 
-                                                <form class="d-inline" action="{{route('manager.confirmers.delete',$confirmer->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.confirmers.delete',$confirmer->id)}}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                 <button class="btn btn-danger" type="submit">حذف</button>

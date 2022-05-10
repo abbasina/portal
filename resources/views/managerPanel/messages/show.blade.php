@@ -58,7 +58,7 @@
                                             <td>{{$body->msgbody}}</td>
                                             <td>
                                             @if($body->attachment)
-                                                <a class="btn btn-success" href="{{ route('manager.messages.downloadattach',$body->id) }}">دانلود ضمیمه</a>
+                                                <a class="btn btn-success" href="{{ route(auth()->user()->role->title.'.messages.downloadattach',$body->id) }}">دانلود ضمیمه</a>
                                             @endif
                                                 
                                                 </td>

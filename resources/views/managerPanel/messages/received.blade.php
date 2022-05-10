@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-sm-8"><h2>لیست <b>پیام های دریافتی</b></h2></div>
                                         <div class="col-sm-4">
-                                            <a href="{{route('manager.messages.create')}}">
+                                            <a href="{{route(auth()->user()->role->title.'.messages.create')}}">
                                             <button type="button" class="btn btn-green">ایجاد پیام</button>
                                             </a>
                                         </div>
@@ -58,14 +58,14 @@
                                             <td>{{$message->id}}</td>
                                             <td>{{$message->msgbody}}</td>
                                             <td>@if($message->attachment)
-                                                <a class="btn btn-success" href="{{ route('manager.messages.downloadattach',$message->id) }}">دانلود ضمیمه</a>
+                                                <a class="btn btn-success" href="{{ route(auth()->user()->role->title.'.messages.downloadattach',$message->id) }}">دانلود ضمیمه</a>
                                             @endif
                                                 
                                                 </td>
                                             <td>{{new verta($message->created_at,'Asia/Tehran','%B %d، %Y')}}</td>
                                            <td>{{ $message->fullname }}</td>
                                             <td>
-                                                <a href="{{ route('manager.messages.show',$message->msg_id) }}" class="btn btn-primary" title="Add">مشاهده</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.messages.show',$message->msg_id) }}" class="btn btn-primary" title="Add">مشاهده</a>
                                                 
 
 

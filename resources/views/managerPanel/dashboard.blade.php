@@ -26,8 +26,8 @@
                   </h2>
                   <div id="flushcollapseinvites" class="accordion-collapse collapse" aria-labelledby="headinginvites" data-bs-parent="#accordionflusher">
                     <div class="accordion-body">
-                        <a  href="{{ route('manager.invites') }}">لیست کدها</a><hr>
-                        <a  href="{{ route('manager.invites.create') }}">ایجاد کد جدید</a>
+                        <a  href="{{ route(auth()->user()->role->title.'.invites') }}">لیست کدها</a><hr>
+                        <a  href="{{ route(auth()->user()->role->title.'.invites.create') }}">ایجاد کد جدید</a>
                     </div>
                   </div>
                 </div>
@@ -41,8 +41,8 @@
                   </h2>
                   <div id="flushcollapsecomision" class="accordion-collapse collapse" aria-labelledby="headingcomision" data-bs-parent="#accordionflusher">
                     <div class="accordion-body">
-                        <a  href="{{ route('manager.comisions') }}">لیست کمیسیون ها</a><hr>
-                        <a  href="{{ route('manager.comisions.create') }}">ایجاد کمیسیون جدید</a>
+                        <a  href="{{ route(auth()->user()->role->title.'.comisions') }}">لیست کمیسیون ها</a><hr>
+                        <a  href="{{ route(auth()->user()->role->title.'.comisions.create') }}">ایجاد کمیسیون جدید</a>
                     </div>
                   </div>
                 </div>
@@ -56,7 +56,7 @@
                   </h2>
                   <div id="flushcollapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionflusher">
                     <div class="accordion-body">
-                        <a  href="{{ route('manager.users') }}">لیست کاربران</a><hr>
+                        <a  href="{{ route(auth()->user()->role->title.'.users') }}">لیست کاربران</a><hr>
                     </div>
                   </div>
                 </div>
@@ -73,9 +73,9 @@
                   </h2>
                   <div id="flushcollapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionflusher">
                     <div class="accordion-body">
-                        <a  href="{{ route('manager.messages.create') }}">ایجاد پیام جدید</a><hr>
-                        <a  href="{{ route('manager.messages.received') }}">پیام های دریافتی</a><hr>
-                        <a  href="{{ route('manager.messages.sent') }}">پیام های ارسالی</a>
+                        <a  href="{{ route(auth()->user()->role->title.'.messages.create') }}">ایجاد پیام جدید</a><hr>
+                        <a  href="{{ route(auth()->user()->role->title.'.messages.received') }}">پیام های دریافتی</a><hr>
+                        <a  href="{{ route(auth()->user()->role->title.'.messages.sent') }}">پیام های ارسالی</a>
                     </div>
                   </div>
                 </div>
@@ -90,8 +90,8 @@
                   </h2>
                   <div id="flushcollapseNote" class="accordion-collapse collapse" aria-labelledby="headingNote" data-bs-parent="#accordionflusher">
                     <div class="accordion-body">
-                        <a  href="{{ route('manager.notes.create') }}">ایجاد یادداشت جدید</a><hr>
-                        <a  href="{{ route('manager.notes') }}">وضعیت یادداشت های من</a><hr>
+                        <a  href="{{ route(auth()->user()->role->title.'.notes.create') }}">ایجاد یادداشت جدید</a><hr>
+                        <a  href="{{ route(auth()->user()->role->title.'.notes') }}">وضعیت یادداشت های من</a><hr>
                     </div>
                   </div>
                 </div>
@@ -106,8 +106,8 @@
                   </h2>
                   <div id="flushcollapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionflusher">
                     <div class="accordion-body">
-                        <a  href="{{ route('manager.articles.create') }}">ایجاد خبر جدید</a><hr>
-                        <a  href="{{ route('manager.articles') }}">وضعیت اخبار</a><hr>
+                        <a  href="{{ route(auth()->user()->role->title.'.articles.create') }}">ایجاد خبر جدید</a><hr>
+                        <a  href="{{ route(auth()->user()->role->title.'.articles') }}">وضعیت اخبار</a><hr>
                     </div>
                   </div>
                 </div>
@@ -123,8 +123,8 @@
                   </h2>
                   <div id="flushcollapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionflusher">
                     <div class="accordion-body">
-                        <a  href="{{ route('manager.comments.unconfirmed') }}">نظرات تایید نشده</a><hr>
-                        <a  href="{{ route('manager.comments.confirmed') }}">نظرات تایید شده</a><hr>
+                        <a  href="{{ route(auth()->user()->role->title.'.comments.unconfirmed') }}">نظرات تایید نشده</a><hr>
+                        <a  href="{{ route(auth()->user()->role->title.'.comments.confirmed') }}">نظرات تایید شده</a><hr>
                         
                     </div>
                   </div>
@@ -141,8 +141,8 @@
                   </h2>
                   <div id="flushcollapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionflusher">
                     <div class="accordion-body">
-                        <a  href="{{ route('manager.albums.create') }}">ایجاد آلبوم جدید</a><hr>
-                        <a  href="{{ route('manager.albums') }}">مشاهده آلبوم ها</a><hr>
+                        <a  href="{{ route(auth()->user()->role->title.'.albums.create') }}">ایجاد آلبوم جدید</a><hr>
+                        <a  href="{{ route(auth()->user()->role->title.'.albums') }}">مشاهده آلبوم ها</a><hr>
                     </div>
                   </div>
                 </div>
@@ -158,8 +158,8 @@
                   </h2>
                   <div id="flushcollapseGallery" class="accordion-collapse collapse" aria-labelledby="headingGallery" data-bs-parent="#accordionflusher">
                     <div class="accordion-body">
-                        <a  href="{{ route('manager.capitals.create') }}">ایجاد کلانشهر جدید</a><hr>
-                        <a  href="{{ route('manager.capitals') }}">مشاهده کلانشهرها ها</a><hr>
+                        <a  href="{{ route(auth()->user()->role->title.'.capitals.create') }}">ایجاد کلانشهر جدید</a><hr>
+                        <a  href="{{ route(auth()->user()->role->title.'.capitals') }}">مشاهده کلانشهرها ها</a><hr>
                     </div>
                   </div>
                 </div>
@@ -168,7 +168,7 @@
                   
                 
                 <div class="accordion-item">
-                <a href="{{ route('manager.heading') }}">
+                <a href="{{ route(auth()->user()->role->title.'.heading') }}">
                 <button class="password-button bg-success text-white" type="button">
                    تیتر یک صفحه اصلی
                 </button>
@@ -179,7 +179,7 @@
                   
                 
                 <div class="accordion-item">
-                <a href="{{ route('manager.videos') }}">
+                <a href="{{ route(auth()->user()->role->title.'.videos') }}">
                 <button class="password-button bg-success text-white" type="button">
                   مدیریت ویدئوها
                 </button>
@@ -187,7 +187,7 @@
                 </div>
                 @endcan
                 <div class="accordion-item">
-                <a href="{{ route('manager.mycomments') }}">
+                <a href="{{ route(auth()->user()->role->title.'.mycomments') }}">
                 <button class="password-button bg-success text-white" type="button">
                   نظرات من
                 </button>
@@ -195,7 +195,7 @@
                 </div>
 
                 <div class="accordion-item">
-                <a href="{{ route('manager.profile') }}">
+                <a href="{{ route(auth()->user()->role->title.'.profile') }}">
                 <button class="password-button bg-success text-white" type="button">
                   مشاهده پروفایل 
                 </button>

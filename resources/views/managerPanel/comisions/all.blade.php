@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-sm-8"><h2>لیست <b>کمیسیون ها</b></h2></div>
                                         <div class="col-sm-4">
-                                            <a href="{{route('manager.comisions.create')}}">
+                                            <a href="{{route(auth()->user()->role->title.'.comisions.create')}}">
                                             <button type="button" class="btn btn-green">افزودن کمیسیون</button>
                                             </a>
                                         </div>
@@ -55,11 +55,11 @@
                                             <td>{{$comision->id}}</td>
                                             <td>{{$comision->name}}</td>
                                             <td>
-                                                <a href="{{ route('manager.comisions.introduce',$comision->id) }}" class="btn btn-success">معرفی</a>
-                                                <a href="{{ route('manager.comisions.edit',$comision->id) }}" class="btn btn-primary">ویرایش</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.comisions.introduce',$comision->id) }}" class="btn btn-success">معرفی</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.comisions.edit',$comision->id) }}" class="btn btn-primary">ویرایش</a>
 
 
-                                                <form class="d-inline" action="{{route('manager.comisions.delete',$comision->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.comisions.delete',$comision->id)}}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                 <button class="btn btn-danger" type="submit">حذف</button>

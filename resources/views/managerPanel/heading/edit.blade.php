@@ -33,7 +33,7 @@
 
                             @include('layouts.errors')
 
-                            <form action="{{ route('manager.heading.update') }}" method="POST" class="w-lg-50 mb-4">
+                            <form action="{{ route(auth()->user()->role->title.'.heading.update') }}" method="POST" class="w-lg-50 mb-4">
                                 @csrf
                                 @method('put')
 

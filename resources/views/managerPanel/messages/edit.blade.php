@@ -33,7 +33,7 @@
 
                             @include('layouts.errors')
 
-                            <form action="{{ route('manager.messages.update', $message->id ) }}" method="POST" class="w-lg-50 mb-4" enctype="multipart/form-data">
+                            <form action="{{ route(auth()->user()->role->title.'.messages.update', $message->id ) }}" method="POST" class="w-lg-50 mb-4" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
 

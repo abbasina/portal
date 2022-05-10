@@ -25,7 +25,7 @@ use App\Http\Controllers\manager\InvitesController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware(['auth','can:manage'])->prefix('adminpanel')->group(function(){
+Route::middleware(['auth','can:manage'])->prefix('managerpanel')->group(function(){
     Route::get('',[CapitalsController::class,'profile'])->name('manager.profile');
     Route::prefix('capitals')->group(function(){
         Route::get('',[CapitalsController::class,'all'])->name('manager.capitals');
@@ -129,131 +129,126 @@ Route::middleware(['auth','can:manage'])->prefix('adminpanel')->group(function()
     Route::resource('gallery', 'GalleryController');
 });
 Route::middleware(['auth','can:chief'])->prefix('chiefpanel')->group(function(){
-    Route::get('',[CapitalsController::class,'profile'])->name('manager.profile');
+    Route::get('',[CapitalsController::class,'profile'])->name('chief.profile');
 
     Route::prefix('albums')->group(function(){
-        Route::get('',[AlbumsController::class,'all'])->name('manager.albums');
-        Route::get('create',[AlbumsController::class,'create'])->name('manager.albums.create');
-        Route::post('',[AlbumsController::class,'store'])->name('manager.albums.store');
-        Route::delete('{album_id}/delete',[AlbumsController::class,'delete'])->name('manager.albums.delete');
-        Route::get('{album_id}/edit',[AlbumsController::class,'edit'])->name('manager.albums.edit');
-        Route::get('{album_id}/upload',[AlbumsController::class,'upload'])->name('manager.albums.upload');
-        Route::put('{album_id}/update',[AlbumsController::class,'update'])->name('manager.albums.update');
+        Route::get('',[AlbumsController::class,'all'])->name('chief.albums');
+        Route::get('create',[AlbumsController::class,'create'])->name('chief.albums.create');
+        Route::post('',[AlbumsController::class,'store'])->name('chief.albums.store');
+        Route::delete('{album_id}/delete',[AlbumsController::class,'delete'])->name('chief.albums.delete');
+        Route::get('{album_id}/edit',[AlbumsController::class,'edit'])->name('chief.albums.edit');
+        Route::get('{album_id}/upload',[AlbumsController::class,'upload'])->name('chief.albums.upload');
+        Route::put('{album_id}/update',[AlbumsController::class,'update'])->name('chief.albums.update');
     });
 
     Route::prefix('comments')->group(function(){
-        Route::get('confirmed',[CommentsController::class,'confirmed'])->name('manager.comments.confirmed');
-        Route::get('unconfirmed',[CommentsController::class,'unconfirmed'])->name('manager.comments.unconfirmed');
-        Route::put('{comment_id}/confirm',[CommentsController::class,'confirm'])->name('manager.comments.confirm');
-        Route::put('{comment_id}/unconfirm',[CommentsController::class,'unconfirm'])->name('manager.comments.unconfirm');
-        Route::delete('{comment_id}/delete',[CommentsController::class,'delete'])->name('manager.comments.delete');
+        Route::get('confirmed',[CommentsController::class,'confirmed'])->name('chief.comments.confirmed');
+        Route::get('unconfirmed',[CommentsController::class,'unconfirmed'])->name('chief.comments.unconfirmed');
+        Route::put('{comment_id}/confirm',[CommentsController::class,'confirm'])->name('chief.comments.confirm');
+        Route::put('{comment_id}/unconfirm',[CommentsController::class,'unconfirm'])->name('chief.comments.unconfirm');
+        Route::delete('{comment_id}/delete',[CommentsController::class,'delete'])->name('chief.comments.delete');
         
     });
     Route::prefix('articles')->group(function(){
-        Route::get('',[ArticlesController::class,'all'])->name('manager.articles');
-        Route::get('create',[ArticlesController::class,'create'])->name('manager.articles.create');
-        Route::get('{article_id}/showarticle',[ArticlesController::class,'showarticle'])->name('manager.articles.showarticle');
-        Route::post('',[ArticlesController::class,'store'])->name('manager.articles.store');
-        Route::get('{article_id}/edit',[ArticlesController::class,'edit'])->name('manager.articles.edit');
-        Route::put('{article_id}/confirm',[ArticlesController::class,'confirm'])->name('manager.articles.confirm');
-        Route::put('{article_id}/publish',[ArticlesController::class,'publish'])->name('manager.articles.publish');
-        Route::put('{article_id}/unconfirm',[ArticlesController::class,'unconfirm'])->name('manager.articles.unconfirm');
-        Route::put('{article_id}/unpublish',[ArticlesController::class,'unpublish'])->name('manager.articles.unpublish');
-        Route::put('{article_id}/updatecontent',[ArticlesController::class,'updatecontent'])->name('manager.articles.updatecontent');
+        Route::get('',[ArticlesController::class,'all'])->name('chief.articles');
+        Route::get('create',[ArticlesController::class,'create'])->name('chief.articles.create');
+        Route::get('{article_id}/showarticle',[ArticlesController::class,'showarticle'])->name('chief.articles.showarticle');
+        Route::post('',[ArticlesController::class,'store'])->name('chief.articles.store');
+        Route::get('{article_id}/edit',[ArticlesController::class,'edit'])->name('chief.articles.edit');
+        Route::put('{article_id}/confirm',[ArticlesController::class,'confirm'])->name('chief.articles.confirm');
+        Route::put('{article_id}/publish',[ArticlesController::class,'publish'])->name('chief.articles.publish');
+        Route::put('{article_id}/unconfirm',[ArticlesController::class,'unconfirm'])->name('chief.articles.unconfirm');
+        Route::put('{article_id}/unpublish',[ArticlesController::class,'unpublish'])->name('chief.articles.unpublish');
+        Route::put('{article_id}/updatecontent',[ArticlesController::class,'updatecontent'])->name('chief.articles.updatecontent');
         Route::post('/uploads',[ArticlesController::class,'uploadimage'])->name('articles.ckeditor.upload');
 
     });
     Route::middleware('can:note')->prefix('notes')->group(function(){
-        Route::get('',[NotesController::class,'all'])->name('manager.notes');
-        Route::get('create',[NotesController::class,'create'])->name('manager.notes.create');
-        Route::get('{note_id}/shownote',[NotesController::class,'shownote'])->name('manager.notes.shownote');
-        Route::post('',[NotesController::class,'store'])->name('manager.notes.store');
-        Route::get('{note_id}/edit',[NotesController::class,'edit'])->name('manager.notes.edit');
-        Route::put('{note_id}/confirm',[NotesController::class,'confirm'])->name('manager.notes.confirm');
-        Route::put('{note_id}/publish',[NotesController::class,'publish'])->name('manager.notes.publish');
-        Route::put('{note_id}/unconfirm',[NotesController::class,'unconfirm'])->name('manager.notes.unconfirm');
-        Route::put('{note_id}/unpublish',[NotesController::class,'unpublish'])->name('manager.notes.unpublish');
-        Route::put('{note_id}/updatecontent',[NotesController::class,'updatecontent'])->name('manager.notes.updatecontent');
+        Route::get('',[NotesController::class,'all'])->name('chief.notes');
+        Route::get('create',[NotesController::class,'create'])->name('chief.notes.create');
+        Route::get('{note_id}/shownote',[NotesController::class,'shownote'])->name('chief.notes.shownote');
+        Route::post('',[NotesController::class,'store'])->name('chief.notes.store');
+        Route::get('{note_id}/edit',[NotesController::class,'edit'])->name('chief.notes.edit');
+        Route::put('{note_id}/confirm',[NotesController::class,'confirm'])->name('chief.notes.confirm');
+        Route::put('{note_id}/publish',[NotesController::class,'publish'])->name('chief.notes.publish');
+        Route::put('{note_id}/unconfirm',[NotesController::class,'unconfirm'])->name('chief.notes.unconfirm');
+        Route::put('{note_id}/unpublish',[NotesController::class,'unpublish'])->name('chief.notes.unpublish');
+        Route::put('{note_id}/updatecontent',[NotesController::class,'updatecontent'])->name('chief.notes.updatecontent');
         Route::post('/uploads',[NotesController::class,'uploadimage'])->name('notes.ckeditor.upload');
 
     });
-    Route::get('mycomments',[MycommentsController::class,'all'])->name('manager.mycomments');
-    Route::get('videos',[MycommentsController::class,'videos'])->name('manager.videos');
-    Route::put('videos',[MycommentsController::class,'updatevideos'])->name('manager.videos.update');
-    Route::get('heading',[MycommentsController::class,'heading'])->name('manager.heading');
-    Route::put('updateheading',[MycommentsController::class,'updateheading'])->name('manager.heading.update');
+    Route::get('mycomments',[MycommentsController::class,'all'])->name('chief.mycomments');
+    Route::get('videos',[MycommentsController::class,'videos'])->name('chief.videos');
+    Route::put('videos',[MycommentsController::class,'updatevideos'])->name('chief.videos.update');
+    Route::get('heading',[MycommentsController::class,'heading'])->name('chief.heading');
+    Route::put('updateheading',[MycommentsController::class,'updateheading'])->name('chief.heading.update');
     Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
     Route::resource('gallery', 'GalleryController');
 });
-Route::middleware(['auth','can:confirm'])->prefix('confirmpanel')->group(function(){
-    Route::get('',[CapitalsController::class,'profile'])->name('manager.profile');
+Route::middleware(['auth','can:confirm'])->prefix('confirmerpanel')->group(function(){
+    Route::get('',[CapitalsController::class,'profile'])->name('confirmer.profile');
 
 
 
 
     Route::prefix('articles')->group(function(){
-        Route::get('',[ArticlesController::class,'all'])->name('manager.articles');
-        Route::get('create',[ArticlesController::class,'create'])->name('manager.articles.create');
-        Route::get('{article_id}/showarticle',[ArticlesController::class,'showarticle'])->name('manager.articles.showarticle');
-        Route::post('',[ArticlesController::class,'store'])->name('manager.articles.store');
-        Route::get('{article_id}/edit',[ArticlesController::class,'edit'])->name('manager.articles.edit');
-        Route::put('{article_id}/confirm',[ArticlesController::class,'confirm'])->name('manager.articles.confirm');
-        Route::put('{article_id}/unconfirm',[ArticlesController::class,'unconfirm'])->name('manager.articles.unconfirm');
-        Route::put('{article_id}/updatecontent',[ArticlesController::class,'updatecontent'])->name('manager.articles.updatecontent');
+        Route::get('',[ArticlesController::class,'all'])->name('confirmer.articles');
+        Route::get('create',[ArticlesController::class,'create'])->name('confirmer.articles.create');
+        Route::get('{article_id}/showarticle',[ArticlesController::class,'showarticle'])->name('confirmer.articles.showarticle');
+        Route::post('',[ArticlesController::class,'store'])->name('confirmer.articles.store');
+        Route::get('{article_id}/edit',[ArticlesController::class,'edit'])->name('confirmer.articles.edit');
+        Route::put('{article_id}/confirm',[ArticlesController::class,'confirm'])->name('confirmer.articles.confirm');
+        Route::put('{article_id}/unconfirm',[ArticlesController::class,'unconfirm'])->name('confirmer.articles.unconfirm');
+        Route::put('{article_id}/updatecontent',[ArticlesController::class,'updatecontent'])->name('confirmer.articles.updatecontent');
         Route::post('/uploads',[ArticlesController::class,'uploadimage'])->name('articles.ckeditor.upload');
 
     });
     Route::middleware('can:note')->prefix('notes')->group(function(){
-        Route::get('',[NotesController::class,'all'])->name('manager.notes');
-        Route::get('create',[NotesController::class,'create'])->name('manager.notes.create');
-        Route::get('{note_id}/shownote',[NotesController::class,'shownote'])->name('manager.notes.shownote');
-        Route::post('',[NotesController::class,'store'])->name('manager.notes.store');
-        Route::get('{note_id}/edit',[NotesController::class,'edit'])->name('manager.notes.edit');
-        Route::put('{note_id}/confirm',[NotesController::class,'confirm'])->name('manager.notes.confirm');
-        Route::put('{note_id}/unconfirm',[NotesController::class,'unconfirm'])->name('manager.notes.unconfirm');
-        Route::put('{note_id}/updatecontent',[NotesController::class,'updatecontent'])->name('manager.notes.updatecontent');
+        Route::get('',[NotesController::class,'all'])->name('confirmer.notes');
+        Route::get('create',[NotesController::class,'create'])->name('confirmer.notes.create');
+        Route::get('{note_id}/shownote',[NotesController::class,'shownote'])->name('confirmer.notes.shownote');
+        Route::post('',[NotesController::class,'store'])->name('confirmer.notes.store');
+        Route::get('{note_id}/edit',[NotesController::class,'edit'])->name('confirmer.notes.edit');
+        Route::put('{note_id}/confirm',[NotesController::class,'confirm'])->name('confirmer.notes.confirm');
+        Route::put('{note_id}/unconfirm',[NotesController::class,'unconfirm'])->name('confirmer.notes.unconfirm');
+        Route::put('{note_id}/updatecontent',[NotesController::class,'updatecontent'])->name('confirmer.notes.updatecontent');
         Route::post('/uploads',[NotesController::class,'uploadimage'])->name('notes.ckeditor.upload');
 
     });
 
-    Route::get('mycomments',[MycommentsController::class,'all'])->name('manager.mycomments');
+    Route::get('mycomments',[MycommentsController::class,'all'])->name('confirmer.mycomments');
     Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 });
-Route::middleware(['auth','can:report'])->prefix('reportpanel')->group(function(){
-    Route::get('',[CapitalsController::class,'profile'])->name('manager.profile');
+Route::middleware(['auth','can:report'])->prefix('reporterpanel')->group(function(){
+    Route::get('',[CapitalsController::class,'profile'])->name('reporter.profile');
 
 
     Route::prefix('articles')->group(function(){
-        Route::get('',[ArticlesController::class,'all'])->name('manager.articles');
-        Route::get('create',[ArticlesController::class,'create'])->name('manager.articles.create');
-        Route::get('{article_id}/showarticle',[ArticlesController::class,'showarticle'])->name('manager.articles.showarticle');
-        Route::post('',[ArticlesController::class,'store'])->name('manager.articles.store');
-        Route::get('{article_id}/edit',[ArticlesController::class,'edit'])->name('manager.articles.edit');
-        Route::put('{article_id}/updatecontent',[ArticlesController::class,'updatecontent'])->name('manager.articles.updatecontent');
+        Route::get('',[ArticlesController::class,'all'])->name('reporter.articles');
+        Route::get('create',[ArticlesController::class,'create'])->name('reporter.articles.create');
+        Route::get('{article_id}/showarticle',[ArticlesController::class,'showarticle'])->name('reporter.articles.showarticle');
+        Route::post('',[ArticlesController::class,'store'])->name('reporter.articles.store');
+        Route::get('{article_id}/edit',[ArticlesController::class,'edit'])->name('reporter.articles.edit');
+        Route::put('{article_id}/updatecontent',[ArticlesController::class,'updatecontent'])->name('reporter.articles.updatecontent');
         Route::post('/uploads',[ArticlesController::class,'uploadimage'])->name('articles.ckeditor.upload');
 
     });
     Route::middleware('can:note')->prefix('notes')->group(function(){
-        Route::get('',[NotesController::class,'all'])->name('manager.notes');
-        Route::get('create',[NotesController::class,'create'])->name('manager.notes.create');
-        Route::get('{note_id}/shownote',[NotesController::class,'shownote'])->name('manager.notes.shownote');
-        Route::post('',[NotesController::class,'store'])->name('manager.notes.store');
-        Route::get('{note_id}/edit',[NotesController::class,'edit'])->name('manager.notes.edit');
-        Route::put('{note_id}/updatecontent',[NotesController::class,'updatecontent'])->name('manager.notes.updatecontent');
+        Route::get('',[NotesController::class,'all'])->name('reporter.notes');
+        Route::get('create',[NotesController::class,'create'])->name('reporter.notes.create');
+        Route::get('{note_id}/shownote',[NotesController::class,'shownote'])->name('reporter.notes.shownote');
+        Route::post('',[NotesController::class,'store'])->name('reporter.notes.store');
+        Route::get('{note_id}/edit',[NotesController::class,'edit'])->name('reporter.notes.edit');
+        Route::put('{note_id}/updatecontent',[NotesController::class,'updatecontent'])->name('reporter.notes.updatecontent');
         Route::post('/uploads',[NotesController::class,'uploadimage'])->name('notes.ckeditor.upload');
 
     });
 
-    Route::get('mycomments',[MycommentsController::class,'all'])->name('manager.mycomments');
-    Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
-});
-Route::middleware(['auth','can:normal'])->prefix('userpanel')->group(function(){
-    Route::get('',[CapitalsController::class,'profile'])->name('manager.profile');
-    Route::get('mycomments',[MycommentsController::class,'all'])->name('manager.mycomments');
+    Route::get('mycomments',[MycommentsController::class,'all'])->name('reporter.mycomments');
     Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 });
 Route::middleware(['auth','can:member'])->prefix('memberpanel')->group(function(){
-    Route::get('',[CapitalsController::class,'profile'])->name('manager.profile');
+    Route::get('',[CapitalsController::class,'profile'])->name('member.profile');
 
 
 
@@ -261,21 +256,27 @@ Route::middleware(['auth','can:member'])->prefix('memberpanel')->group(function(
 
 
     Route::prefix('messages')->group(function(){
-        Route::get('',[MessagesController::class,'all'])->name('manager.messages');
-        Route::get('received',[MessagesController::class,'received'])->name('manager.messages.received');
-        Route::get('sent',[MessagesController::class,'sent'])->name('manager.messages.sent');
-        Route::get('{message_id}/showmessage',[MessagesController::class,'showmessage'])->name('manager.messages.show');
-        Route::get('create',[MessagesController::class,'create'])->name('manager.messages.create');
-        Route::post('',[MessagesController::class,'store'])->name('manager.messages.store');
-        Route::delete('{message_id}/delete',[MessagesController::class,'delete'])->name('manager.messages.delete');
-        Route::get('{message_id}/edit',[MessagesController::class,'edit'])->name('manager.messages.edit');
-        Route::put('{message_id}/update',[MessagesController::class,'update'])->name('manager.messages.update');
-        Route::get('{message_id}/download',[MessagesController::class,'downloadattach'])->name('manager.messages.downloadattach');
+        Route::get('',[MessagesController::class,'all'])->name('member.messages');
+        Route::get('received',[MessagesController::class,'received'])->name('member.messages.received');
+        Route::get('sent',[MessagesController::class,'sent'])->name('member.messages.sent');
+        Route::get('{message_id}/showmessage',[MessagesController::class,'showmessage'])->name('member.messages.show');
+        Route::get('create',[MessagesController::class,'create'])->name('member.messages.create');
+        Route::post('',[MessagesController::class,'store'])->name('member.messages.store');
+        Route::delete('{message_id}/delete',[MessagesController::class,'delete'])->name('member.messages.delete');
+        Route::get('{message_id}/edit',[MessagesController::class,'edit'])->name('member.messages.edit');
+        Route::put('{message_id}/update',[MessagesController::class,'update'])->name('member.messages.update');
+        Route::get('{message_id}/download',[MessagesController::class,'downloadattach'])->name('member.messages.downloadattach');
     });
 
-    Route::get('mycomments',[MycommentsController::class,'all'])->name('manager.mycomments');
+    Route::get('mycomments',[MycommentsController::class,'all'])->name('member.mycomments');
     Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 });
+Route::middleware(['auth','can:normal'])->prefix('userpanel')->group(function(){
+    Route::get('',[CapitalsController::class,'profile'])->name('user.profile');
+    Route::get('mycomments',[MycommentsController::class,'all'])->name('user.mycomments');
+    Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+});
+
 
 
 

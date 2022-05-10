@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-sm-8"><h2>لیست <b>کلانشهرها</b></h2></div>
                                         <div class="col-sm-4">
-                                            <a href="{{route('manager.chiefs.create')}}">
+                                            <a href="{{route(auth()->user()->role->title.'.chiefs.create')}}">
                                             <button type="button" class="btn btn-info">افزودن کلانشهر</button>
                                             </a>
                                         </div>
@@ -55,10 +55,10 @@
                                             <td>{{$chief->id}}</td>
                                             <td>{{$chief->name}}</td>
                                             <td>
-                                                <a href="{{ route('manager.chiefs.edit',$chief->id) }}" class="btn btn-primary" title="Add">ویرایش</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.chiefs.edit',$chief->id) }}" class="btn btn-primary" title="Add">ویرایش</a>
 
 
-                                                <form class="d-inline" action="{{route('manager.chiefs.delete',$chief->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.chiefs.delete',$chief->id)}}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                 <button class="btn btn-danger" type="submit">حذف</button>

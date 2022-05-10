@@ -37,7 +37,7 @@
 
                             @include('layouts.errors')
 
-                            <form action="{{ route('manager.messages.store') }}" method="POST" class="w-lg-50 mb-4" enctype="multipart/form-data">
+                            <form action="{{ route(auth()->user()->role->title.'.messages.store') }}" method="POST" class="w-lg-50 mb-4" enctype="multipart/form-data">
                                 @csrf
 
 

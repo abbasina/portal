@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-sm-8"><h2>لیست <b>اخبار</b></h2></div>
                                         <div class="col-sm-4">
-                                            <a href="{{route('manager.articles.create')}}">
+                                            <a href="{{route(auth()->user()->role->title.'.articles.create')}}">
                                             <button type="button" class="btn btn-green mb-2">ایجاد خبر</button>
                                             </a>
                                         </div>
@@ -79,14 +79,14 @@
                                                 @if ($article->confirm=='0')
                                                     
                                                 
-                                                <form class="d-inline" action="{{route('manager.articles.confirm',$article->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.articles.confirm',$article->id)}}" method="POST">
                                                     @csrf
                                                     @method('put')
 
                                                 <button class="btn btn-success text-nowrap" type="submit">تایید خبر</button>
                                                 </form><hr>
                                                 @else
-                                                <form class="d-inline" action="{{route('manager.articles.unconfirm',$article->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.articles.unconfirm',$article->id)}}" method="POST">
                                                     @csrf
                                                     @method('put')
 
@@ -101,14 +101,14 @@
                                                 @if ($article->publish=='0')
                                                     
                                                 
-                                                <form class="d-inline" action="{{route('manager.articles.publish',$article->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.articles.publish',$article->id)}}" method="POST">
                                                     @csrf
                                                     @method('put')
 
                                                 <button class="btn btn-success text-nowrap" type="submit">انتشار خبر</button>
                                                 </form><hr>
                                                 @else
-                                                <form class="d-inline" action="{{route('manager.articles.unpublish',$article->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.articles.unpublish',$article->id)}}" method="POST">
                                                     @csrf
                                                     @method('put')
 
@@ -124,14 +124,14 @@
                                                     
                                                 
 
-                                                <a href="{{ route('manager.articles.showarticle',$article->id) }}" class="btn btn-primary">مشاهده</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.articles.showarticle',$article->id) }}" class="btn btn-primary">مشاهده</a>
                                                 <hr>
                                                 @if(!$article->confirm)
-                                                <a href="{{ route('manager.articles.edit',$article->id) }}" class="btn btn-warning">ویرایش</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.articles.edit',$article->id) }}" class="btn btn-warning">ویرایش</a>
                                                 <hr>
                                                 @can('editconfirmed')
                                                 @if($article->confirm)
-                                                <a href="{{ route('manager.articles.edit',$article->id) }}" class="btn btn-warning">ویرایش</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.articles.edit',$article->id) }}" class="btn btn-warning">ویرایش</a>
                                                 <hr>
                                                 @endif
                                                 @endcan
@@ -140,7 +140,7 @@
                                                 @can('manage')
                                                     
                                                 
-                                                <form class="d-inline" action="{{route('manager.articles.delete',$article->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.articles.delete',$article->id)}}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                 <button class="btn btn-danger" type="submit">حذف</button>

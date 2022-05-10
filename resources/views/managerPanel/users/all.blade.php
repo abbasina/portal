@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-sm-8"><h2>لیست <b>کاربران</b></h2></div>
                                         <div class="col-sm-4">
-                                            <a href="{{route('manager.users.create')}}">
+                                            <a href="{{route(auth()->user()->role->title.'.users.create')}}">
                                             <button type="button" class="btn btn-green mb-2">افزودن کاربر</button>
                                             </a>
                                         </div>
@@ -60,11 +60,11 @@
                                             <td>{{$user->role->label}}</td>
                                            
                                             <td>
-                                                <a href="{{ route('manager.users.capitals',$user->id) }}" class="btn btn-success">کلانشهرها</a>
-                                                <a href="{{ route('manager.users.edit',$user->id) }}" class="btn btn-primary">ویرایش</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.users.capitals',$user->id) }}" class="btn btn-success">کلانشهرها</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.users.edit',$user->id) }}" class="btn btn-primary">ویرایش</a>
 
 
-                                                <form class="d-inline" action="{{route('manager.users.delete',$user->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.users.delete',$user->id)}}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                 <button class="btn btn-danger" type="submit">حذف</button>

@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-sm-8"><h2>لیست <b>آلبومها</b></h2></div>
                                         <div class="col-sm-4">
-                                            <a href="{{route('manager.albums.create')}}">
+                                            <a href="{{route(auth()->user()->role->title.'.albums.create')}}">
                                             <button type="button" class="btn btn-green">افزودن آلبوم</button>
                                             </a>
                                         </div>
@@ -55,11 +55,11 @@
                                             <td>{{$album->id}}</td>
                                             <td>{{$album->title}}</td>
                                             <td>
-                                                <a href="{{ route('manager.albums.upload',$album->id) }}" class="btn btn-success" title="Add">آپلود تصاویر</a>
-                                                <a href="{{ route('manager.albums.edit',$album->id) }}" class="btn btn-primary" title="Add">ویرایش</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.albums.upload',$album->id) }}" class="btn btn-success" title="Add">آپلود تصاویر</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.albums.edit',$album->id) }}" class="btn btn-primary" title="Add">ویرایش</a>
 
 
-                                                <form class="d-inline" action="{{route('manager.albums.delete',$album->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.albums.delete',$album->id)}}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                 <button class="btn btn-danger" type="submit">حذف</button>

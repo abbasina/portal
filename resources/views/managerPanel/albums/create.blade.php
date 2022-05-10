@@ -25,7 +25,7 @@
             <div class="row g-3">
                 @include('managerpanel.dashboard')
                 <div class="col-12 col-lg-9">
-                    <a href="{{route('manager.albums')}}">
+                    <a href="{{route(auth()->user()->role->title.'.albums')}}">
                         <button class="btn btn-green mb-2">بازگشت به لیست آلبومها</button>
                     </a>
                     <div class="card">
@@ -33,7 +33,7 @@
 
                             @include('layouts.errors')
 
-                            <form action="{{ route('manager.albums.store') }}" method="POST" class="w-lg-50 mb-4">
+                            <form action="{{ route(auth()->user()->role->title.'.albums.store') }}" method="POST" class="w-lg-50 mb-4">
                                 @csrf
 
 

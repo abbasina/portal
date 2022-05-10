@@ -28,7 +28,7 @@
             <div class="row g-3">
                 @include('managerpanel.dashboard')
                 <div class="col-12 col-lg-9">
-                    <a href="{{route('manager.articles')}}">
+                    <a href="{{route(auth()->user()->role->title.'.articles')}}">
                         <button class="btn btn-green">بازگشت به آرشیو اخبار</button>
                     </a><hr>
                     <div class="card">
@@ -36,7 +36,7 @@
 
                             @include('layouts.errors')
 
-                            <form action="{{ route('manager.articles.updatecontent',$article->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route(auth()->user()->role->title.'.articles.updatecontent',$article->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
                                 <div class="mb-3 bg-white rounded-12 border form-group">

@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-sm-8"><h2>لیست <b>کدهای معرف</b></h2></div>
                                         <div class="col-sm-4">
-                                            <a href="{{route('manager.invites.create')}}">
+                                            <a href="{{route(auth()->user()->role->title.'.invites.create')}}">
                                             <button type="button" class="btn btn-green">ایجاد کدمعرف</button>
                                             </a>
                                         </div>
@@ -59,7 +59,7 @@
                                             <td>
 
 
-                                                <form class="d-inline" action="{{route('manager.invites.delete',$invite->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.invites.delete',$invite->id)}}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                 <button class="btn btn-danger" type="submit">حذف</button>

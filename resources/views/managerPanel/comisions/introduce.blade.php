@@ -25,7 +25,7 @@
             <div class="row g-3">
                 @include('managerpanel.dashboard')
                 <div class="col-12 col-lg-9">
-                    <a href="{{route('manager.comisions')}}">
+                    <a href="{{route(auth()->user()->role->title.'.comisions')}}">
                         <button class="btn btn-green mb-3">بازگشت به لیست کمیسیون ها</button>
                     </a>
                     <div class="card">
@@ -33,7 +33,7 @@
 
                             @include('layouts.errors')
 
-                            <form action="{{ route('manager.comisions.update',$comision->id) }}" method="POST" class="mb-4">
+                            <form action="{{ route(auth()->user()->role->title.'.comisions.update',$comision->id) }}" method="POST" class="mb-4">
                                 @csrf
                                 @method('put')
 

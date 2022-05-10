@@ -31,7 +31,7 @@
 
                             <form method="POST" action="{{ route('gallery.store') }}" enctype="multipart/form-data"  class="form-inline">
                                 <p><small>توجه : سایز فایلهای آپلودی نباید بیشتر از 8 مگابایت باشد.</small>
-                                    <a class="btn btn-green d-inline" href="{{ route('manager.albums') }}">بازگشت</a>
+                                    <a class="btn btn-green d-inline" href="{{ route(auth()->user()->role->title.'.albums') }}">بازگشت</a>
                                 </p>
                                 @include('layouts.errors')
                                 <div class="form-group d-inline">

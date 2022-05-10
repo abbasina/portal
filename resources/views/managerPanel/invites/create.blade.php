@@ -27,7 +27,7 @@
             <div class="row g-3">
                 @include('managerpanel.dashboard')
                 <div class="col-12 col-lg-9">
-                    <a href="{{route('manager.invites')}}">
+                    <a href="{{route(auth()->user()->role->title.'.invites')}}">
                         <button class="btn btn-green mb-1">بازگشت به لیست کدهای معرف</button>
                     </a>
                     <div class="card">
@@ -35,7 +35,7 @@
 
                             @include('layouts.errors')
 
-                            <form action="{{ route('manager.invites.store') }}" method="POST" class="w-lg-50 mb-4">
+                            <form action="{{ route(auth()->user()->role->title.'.invites.store') }}" method="POST" class="w-lg-50 mb-4">
                                 @csrf
 
 

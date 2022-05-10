@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-sm-8"><h2>لیست <b>کلانشهرها</b></h2></div>
                                         <div class="col-sm-4">
-                                            <a href="{{route('manager.capitals.create')}}">
+                                            <a href="{{route(auth()->user()->role->title.'.capitals.create')}}">
                                             <button type="button" class="btn btn-green">افزودن کلانشهر</button>
                                             </a>
                                         </div>
@@ -55,10 +55,10 @@
                                             <td>{{$capital->id}}</td>
                                             <td>{{$capital->name}}</td>
                                             <td>
-                                                <a href="{{ route('manager.capitals.edit',$capital->id) }}" class="btn btn-primary" title="Add">ویرایش</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.capitals.edit',$capital->id) }}" class="btn btn-primary" title="Add">ویرایش</a>
 
 
-                                                <form class="d-inline" action="{{route('manager.capitals.delete',$capital->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.capitals.delete',$capital->id)}}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                 <button class="btn btn-danger" type="submit">حذف</button>

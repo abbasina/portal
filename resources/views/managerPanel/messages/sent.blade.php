@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-sm-8"><h2>لیست <b>پیام های ارسالی</b></h2></div>
                                         <div class="col-sm-4">
-                                            <a href="{{route('manager.messages.create')}}">
+                                            <a href="{{route(auth()->user()->role->title.'.messages.create')}}">
                                             <button type="button" class="btn btn-green">ایجاد پیام</button>
                                             </a>
                                         </div>
@@ -59,18 +59,18 @@
                                             <td>{{$message->msgbody}}</td>
                                             <td>
                                             @if($message->attachment)
-                                                <a class="btn btn-success" href="{{ route('manager.messages.downloadattach',$message->msg_id) }}">دانلود ضمیمه</a>
+                                                <a class="btn btn-success" href="{{ route(auth()->user()->role->title.'.messages.downloadattach',$message->msg_id) }}">دانلود ضمیمه</a>
                                             @endif
                                                 
                                                 </td>
                                             <td>{{new verta($message->created_at,'Asia/Tehran')}}</td>
                                             <td>{{ $message->fullname }}</td>
                                             <td>
-                                                <a href="{{ route('manager.messages.show',$message->msg_id) }}" class="btn btn-primary" title="Add">مشاهده</a>
-                                                <a href="{{ route('manager.messages.edit',$message->msg_id) }}" class="btn btn-warning" title="Add">ویرایش</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.messages.show',$message->msg_id) }}" class="btn btn-primary" title="Add">مشاهده</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.messages.edit',$message->msg_id) }}" class="btn btn-warning" title="Add">ویرایش</a>
                      
 
-                                                <form class="d-inline" action="{{route('manager.messages.delete',$message->msg_id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.messages.delete',$message->msg_id)}}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                 <button class="btn btn-danger" type="submit">حذف</button>

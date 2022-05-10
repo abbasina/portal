@@ -28,7 +28,7 @@
             <div class="row g-3">
                 @include('managerpanel.dashboard')
                 <div class="col-12 col-lg-9">
-                    <a href="{{route('manager.notes')}}">
+                    <a href="{{route(auth()->user()->role->title.'.notes')}}">
                         <button class="btn btn-green">بازگشت به آرشیو یادداشت ها</button>
                     </a><hr>
                     <div class="card">
@@ -36,7 +36,7 @@
 
                             @include('layouts.errors')
 
-                            <form action="{{ route('manager.notes.store') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route(auth()->user()->role->title.'.notes.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3 bg-white rounded-12 border form-group">
                                     <div class="input-group input-group-sm">

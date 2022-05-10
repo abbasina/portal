@@ -35,7 +35,7 @@
                                     <div class="row">
                                         <div class="col-sm-8"><h2>لیست <b>یادداشت ها</b></h2></div>
                                         <div class="col-sm-4">
-                                            <a href="{{route('manager.notes.create')}}">
+                                            <a href="{{route(auth()->user()->role->title.'.notes.create')}}">
                                             <button type="button" class="btn btn-green mb-2">ایجاد یادداشت</button>
                                             </a>
                                         </div>
@@ -88,14 +88,14 @@
                                                 @if ($note->confirm=='0')
                                                     
                                                 
-                                                <form class="d-inline" action="{{route('manager.notes.confirm',$note->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.notes.confirm',$note->id)}}" method="POST">
                                                     @csrf
                                                     @method('put')
 
                                                 <button class="btn btn-success text-nowrap" type="submit">تایید یادداشت</button>
                                                 </form><hr>
                                                 @else
-                                                <form class="d-inline" action="{{route('manager.notes.unconfirm',$note->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.notes.unconfirm',$note->id)}}" method="POST">
                                                     @csrf
                                                     @method('put')
 
@@ -110,14 +110,14 @@
                                                 @if ($note->publish=='0')
                                                     
                                                 
-                                                <form class="d-inline" action="{{route('manager.notes.publish',$note->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.notes.publish',$note->id)}}" method="POST">
                                                     @csrf
                                                     @method('put')
 
                                                 <button class="btn btn-success text-nowrap" type="submit">انتشار یادداشت</button>
                                                 </form><hr>
                                                 @else
-                                                <form class="d-inline" action="{{route('manager.notes.unpublish',$note->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.notes.unpublish',$note->id)}}" method="POST">
                                                     @csrf
                                                     @method('put')
 
@@ -133,14 +133,14 @@
                                                     
                                                 
 
-                                                <a href="{{ route('manager.notes.shownote',$note->id) }}" class="btn btn-primary">مشاهده</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.notes.shownote',$note->id) }}" class="btn btn-primary">مشاهده</a>
                                                 <hr>
                                                 @if(!$note->confirm)
-                                                <a href="{{ route('manager.notes.edit',$note->id) }}" class="btn btn-warning">ویرایش</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.notes.edit',$note->id) }}" class="btn btn-warning">ویرایش</a>
                                                 <hr>
                                                 @can('editconfirmed')
                                                 @if($note->confirm)
-                                                <a href="{{ route('manager.notes.edit',$note->id) }}" class="btn btn-warning">ویرایش</a>
+                                                <a href="{{ route(auth()->user()->role->title.'.notes.edit',$note->id) }}" class="btn btn-warning">ویرایش</a>
                                                 <hr>
                                                 @endif
                                                 @endcan
@@ -149,7 +149,7 @@
                                                 @can('manage')
                                                     
                                                 
-                                                <form class="d-inline" action="{{route('manager.notes.delete',$note->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.notes.delete',$note->id)}}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                 <button class="btn btn-danger" type="submit">حذف</button>

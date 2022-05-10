@@ -57,12 +57,12 @@
                                             <td>
 
 
-                                                <form class="d-inline" action="{{route('manager.comments.unconfirm',$comment->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.comments.unconfirm',$comment->id)}}" method="POST">
                                                     @csrf
                                                     @method('put')
                                                 <button class="btn btn-warning" type="submit">عدم تایید نظر</button>
                                                 </form>
-                                                <form class="d-inline" action="{{route('manager.comments.delete',$comment->id)}}" method="POST">
+                                                <form class="d-inline" action="{{route(auth()->user()->role->title.'.comments.delete',$comment->id)}}" method="POST">
                                                     @csrf
                                                     @method('delete')
                                                 <button class="btn btn-danger" type="submit">حذف</button>

@@ -88,7 +88,7 @@ class GalleryController extends Controller
         }
 
         
-        return redirect()->route('manager.albums.upload',$gallery->album_id )->with('success','تصاویر مربوطه با موفقیت در این آلبوم آپلود شد.');
+        return redirect()->route(auth()->user()->role->title.'.albums.upload',$gallery->album_id )->with('success','تصاویر مربوطه با موفقیت در این آلبوم آپلود شد.');
     }
 
     /**
