@@ -125,7 +125,7 @@ Route::middleware(['auth','can:manage'])->prefix('managerpanel')->group(function
     Route::put('videos',[MycommentsController::class,'updatevideos'])->name('manager.videos.update');
     Route::get('heading',[MycommentsController::class,'heading'])->name('manager.heading');
     Route::put('updateheading',[MycommentsController::class,'updateheading'])->name('manager.heading.update');
-    Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+    Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('manager.logout');
     Route::resource('gallery', 'GalleryController');
 });
 Route::middleware(['auth','can:chief'])->prefix('chiefpanel')->group(function(){
@@ -182,7 +182,7 @@ Route::middleware(['auth','can:chief'])->prefix('chiefpanel')->group(function(){
     Route::put('videos',[MycommentsController::class,'updatevideos'])->name('chief.videos.update');
     Route::get('heading',[MycommentsController::class,'heading'])->name('chief.heading');
     Route::put('updateheading',[MycommentsController::class,'updateheading'])->name('chief.heading.update');
-    Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+    Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('chief.logout');
     Route::resource('gallery', 'GalleryController');
 });
 Route::middleware(['auth','can:confirm'])->prefix('confirmerpanel')->group(function(){
@@ -217,7 +217,7 @@ Route::middleware(['auth','can:confirm'])->prefix('confirmerpanel')->group(funct
     });
 
     Route::get('mycomments',[MycommentsController::class,'all'])->name('confirmer.mycomments');
-    Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+    Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('confirmer.logout');
 });
 Route::middleware(['auth','can:report'])->prefix('reporterpanel')->group(function(){
     Route::get('',[CapitalsController::class,'profile'])->name('reporter.profile');
@@ -245,7 +245,7 @@ Route::middleware(['auth','can:report'])->prefix('reporterpanel')->group(functio
     });
 
     Route::get('mycomments',[MycommentsController::class,'all'])->name('reporter.mycomments');
-    Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+    Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('reporter.logout');
 });
 Route::middleware(['auth','can:member'])->prefix('memberpanel')->group(function(){
     Route::get('',[CapitalsController::class,'profile'])->name('member.profile');
@@ -269,12 +269,12 @@ Route::middleware(['auth','can:member'])->prefix('memberpanel')->group(function(
     });
 
     Route::get('mycomments',[MycommentsController::class,'all'])->name('member.mycomments');
-    Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+    Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('member.logout');
 });
 Route::middleware(['auth','can:normal'])->prefix('userpanel')->group(function(){
     Route::get('',[CapitalsController::class,'profile'])->name('user.profile');
     Route::get('mycomments',[MycommentsController::class,'all'])->name('user.mycomments');
-    Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+    Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('user.logout');
 });
 
 

@@ -202,7 +202,7 @@
                 </a>
                 </div>
                 <div class="accordion-item">
-                <a href="{{ route('logout') }}">
+                <a href="{{ route(auth()->user()->role->title.'.logout') }}">
                 <button class="password-button bg-success text-white" type="button">
                   خروج
                 </button>
