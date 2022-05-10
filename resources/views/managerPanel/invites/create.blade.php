@@ -1,28 +1,22 @@
-@extends('layouts.master')
+@extends('managerpanel.master')
 @section('styles')
 <link href="/css/select2.min.css" rel="stylesheet" />
 @endsection
 @section('pageTitle')
     ایجاد کدمعرف جدید
 @endsection
+@section('location')
+<section class="content-header">
 
+    <ol class="breadcrumb">
+      <li><a href="{{ auth()->user()->role->title.'panel' }}"><i class="fa fa-home"></i>خانه</a></li>
+      <li class="active">ایجاد کدمعرف جدید</li>
+    </ol>
+  </section>
+@endsection
 @section('content')
     <main class="container">
-        <h1 class="main-title"> پنل مدیریت</h1>
-        <div class="brudcrumbs my-3">
-            <ul>
-                <li>
-                    <a href="#">پنل مدیریت</a>
-                </li>
-                <li>
-                    <span> / </span>
-                </li>
-                <li>
-                    <a href="#"> ایجاد کدمعرف جدید</a>
-                </li>
-
-            </ul>
-        </div>
+      
         <section class="mb-3">
             <div class="row g-3">
                 @include('managerpanel.dashboard')

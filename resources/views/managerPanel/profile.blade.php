@@ -9,7 +9,8 @@
       <li><a href="#"><i class="fa fa-home"></i>خانه</a></li>
       <li class="active">پروفایل</li>
     </ol>
-  </section>@endsection
+  </section>
+@endsection
 
 @section('content')
 <main class="container my-5">
