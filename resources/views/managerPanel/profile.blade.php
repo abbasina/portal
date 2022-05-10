@@ -1,24 +1,19 @@
-@extends('layouts.master')
+@extends('managerpanel.master')
 @section('pageTitle')
-پنل مدیریت
+پروفایل کاربر
 @endsection
+@section('location')
+<section class="content-header">
+
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-home"></i>خانه</a></li>
+      <li class="active">پروفایل</li>
+    </ol>
+  </section>@endsection
+
 @section('content')
 <main class="container my-5">
-    <h1 class="main-title">پنل مدیریت</h1>
-    <div class="brudcrumbs my-3">
-        <ul >
-            <li>
-                <a href="#">صفحه اصلی</a>
-            </li>
-            <li>
-                <span> / </span>
-            </li>
-            <li>
-                <a href="#">پنل مدیریت </a>
-            </li>
-  
-        </ul>
-    </div>
+
     <section class="mb-3">
         <div class="row g-3">
         @include('managerpanel.dashboard')

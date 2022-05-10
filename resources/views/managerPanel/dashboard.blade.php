@@ -1,215 +1,161 @@
-<div class="col-12 col-lg-3">
-    <div class="card">
-        <div class="card-body">
-            <div class="row row-cols-auto">
-                <div class="col">
-
-                    <img src="/img/user-big.svg" alt="Image" loading="lazy" class="img-fluid">
-                </div>
-                <div class="col">
-
-                    <h5 class="fw-bold mt-3 fs-16">{{ auth()->user()->fullname }}</h5>
-                    <p>خوش آمدید</p>
-                </div>
-            </div>
-
-
-                <div class="accordion mt-3" id="accordionflusher">
-                  @can('manage')
-                    
-                  
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headinginvites">
-                    <button class="accordion-button bg-success text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flushcollapseinvites" aria-expanded="false" aria-controls="flushcollapseinvites">
-                        کدهای معرف
-                    </button>
-                  </h2>
-                  <div id="flushcollapseinvites" class="accordion-collapse collapse" aria-labelledby="headinginvites" data-bs-parent="#accordionflusher">
-                    <div class="accordion-body">
-                        <a  href="{{ route(auth()->user()->role->title.'.invites') }}">لیست کدها</a><hr>
-                        <a  href="{{ route(auth()->user()->role->title.'.invites.create') }}">ایجاد کد جدید</a>
-                    </div>
-                  </div>
-                </div>
-                @endcan
-                @can('manage')
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingcomision">
-                    <button class="accordion-button bg-success text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flushcollapsecomision" aria-expanded="false" aria-controls="flushcollapsecomision">
-                         مدیریت کمیسیون ها
-                    </button>
-                  </h2>
-                  <div id="flushcollapsecomision" class="accordion-collapse collapse" aria-labelledby="headingcomision" data-bs-parent="#accordionflusher">
-                    <div class="accordion-body">
-                        <a  href="{{ route(auth()->user()->role->title.'.comisions') }}">لیست کمیسیون ها</a><hr>
-                        <a  href="{{ route(auth()->user()->role->title.'.comisions.create') }}">ایجاد کمیسیون جدید</a>
-                    </div>
-                  </div>
-                </div>
-                @endcan
-                @can('manage')                  
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button bg-success text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flushcollapseOne" aria-expanded="false" aria-controls="flushcollapseOne">
-                        مدیریت کاربران
-                    </button>
-                  </h2>
-                  <div id="flushcollapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionflusher">
-                    <div class="accordion-body">
-                        <a  href="{{ route(auth()->user()->role->title.'.users') }}">لیست کاربران</a><hr>
-                    </div>
-                  </div>
-                </div>
-                @endcan
-                @can('member')
-                  
-                
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button bg-success text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flushcollapseTwo" aria-expanded="false" aria-controls="flushcollapseTwo">
-                        مدیریت پیام ها 
-
-                    </button>
-                  </h2>
-                  <div id="flushcollapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionflusher">
-                    <div class="accordion-body">
-                        <a  href="{{ route(auth()->user()->role->title.'.messages.create') }}">ایجاد پیام جدید</a><hr>
-                        <a  href="{{ route(auth()->user()->role->title.'.messages.received') }}">پیام های دریافتی</a><hr>
-                        <a  href="{{ route(auth()->user()->role->title.'.messages.sent') }}">پیام های ارسالی</a>
-                    </div>
-                  </div>
-                </div>
-                @endcan
-                @can('note')                 
-                
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingNote">
-                    <button class="accordion-button bg-success text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flushcollapseNote" aria-expanded="false" aria-controls="flushcollapseNote">
-مدیریت یادداشت ها
-                    </button>
-                  </h2>
-                  <div id="flushcollapseNote" class="accordion-collapse collapse" aria-labelledby="headingNote" data-bs-parent="#accordionflusher">
-                    <div class="accordion-body">
-                        <a  href="{{ route(auth()->user()->role->title.'.notes.create') }}">ایجاد یادداشت جدید</a><hr>
-                        <a  href="{{ route(auth()->user()->role->title.'.notes') }}">وضعیت یادداشت های من</a><hr>
-                    </div>
-                  </div>
-                </div>
-                @endcan
-                @can('report')                 
-                
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingThree">
-                    <button class="accordion-button bg-success text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flushcollapseThree" aria-expanded="false" aria-controls="flushcollapseThree">
-                      مدیریت اخبار
-                    </button>
-                  </h2>
-                  <div id="flushcollapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionflusher">
-                    <div class="accordion-body">
-                        <a  href="{{ route(auth()->user()->role->title.'.articles.create') }}">ایجاد خبر جدید</a><hr>
-                        <a  href="{{ route(auth()->user()->role->title.'.articles') }}">وضعیت اخبار</a><hr>
-                    </div>
-                  </div>
-                </div>
-                @endcan
-                @can('commentor')
-                  
-                
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingFour">
-                    <button class="accordion-button bg-success text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flushcollapseFour" aria-expanded="false" aria-controls="flushcollapseFour">
-                      مدیریت نظرات
-                    </button>
-                  </h2>
-                  <div id="flushcollapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionflusher">
-                    <div class="accordion-body">
-                        <a  href="{{ route(auth()->user()->role->title.'.comments.unconfirmed') }}">نظرات تایید نشده</a><hr>
-                        <a  href="{{ route(auth()->user()->role->title.'.comments.confirmed') }}">نظرات تایید شده</a><hr>
-                        
-                    </div>
-                  </div>
-                </div>
-                @endcan
-                @can('manage')
-                  
-                
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingFive">
-                    <button class="accordion-button bg-success text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flushcollapseFive" aria-expanded="false" aria-controls="flushcollapseFive">
-مدیریت گالری تصاویر
-                    </button>
-                  </h2>
-                  <div id="flushcollapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionflusher">
-                    <div class="accordion-body">
-                        <a  href="{{ route(auth()->user()->role->title.'.albums.create') }}">ایجاد آلبوم جدید</a><hr>
-                        <a  href="{{ route(auth()->user()->role->title.'.albums') }}">مشاهده آلبوم ها</a><hr>
-                    </div>
-                  </div>
-                </div>
-                @endcan
-                @can('manage')
-                  
-                
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="headingGallery">
-                    <button class="accordion-button bg-success text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flushcollapseGallery" aria-expanded="false" aria-controls="flushcollapseGallery">
-                      مدیریت کلانشهرها
-                    </button>
-                  </h2>
-                  <div id="flushcollapseGallery" class="accordion-collapse collapse" aria-labelledby="headingGallery" data-bs-parent="#accordionflusher">
-                    <div class="accordion-body">
-                        <a  href="{{ route(auth()->user()->role->title.'.capitals.create') }}">ایجاد کلانشهر جدید</a><hr>
-                        <a  href="{{ route(auth()->user()->role->title.'.capitals') }}">مشاهده کلانشهرها ها</a><hr>
-                    </div>
-                  </div>
-                </div>
-                @endcan
-                @can('manage')
-                  
-                
-                <div class="accordion-item">
-                <a href="{{ route(auth()->user()->role->title.'.heading') }}">
-                <button class="password-button bg-success text-white" type="button">
-                   تیتر یک صفحه اصلی
-                </button>
-                </a>
-                </div>
-                @endcan
-                @can('manage')
-                  
-                
-                <div class="accordion-item">
-                <a href="{{ route(auth()->user()->role->title.'.videos') }}">
-                <button class="password-button bg-success text-white" type="button">
-                  مدیریت ویدئوها
-                </button>
-                </a>
-                </div>
-                @endcan
-                <div class="accordion-item">
-                <a href="{{ route(auth()->user()->role->title.'.mycomments') }}">
-                <button class="password-button bg-success text-white" type="button">
-                  نظرات من
-                </button>
-                </a>
-                </div>
-
-                <div class="accordion-item">
-                <a href="{{ route(auth()->user()->role->title.'.profile') }}">
-                <button class="password-button bg-success text-white" type="button">
-                  مشاهده پروفایل 
-                </button>
-                </a>
-                </div>
-                <div class="accordion-item">
-                <a href="{{ route(auth()->user()->role->title.'.logout') }}">
-                <button class="password-button bg-success text-white" type="button">
-                  خروج
-                </button>
-                </a>
-                </div>
-              </div>
-
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+      <div class="user-panel">
+        <div class="pull-right image">
+          <img src="/panel/dist/img/user2-160x160.svg" class="img-circle" alt="User Image">
         </div>
-    </div>
-</div>
+        <div class="pull-right info">
+          <p>{{ auth()->user()->fullname }}</p>
+          <a href="#"><i class="fa fa-circle text-success"></i> آنلاین</a>
+        </div>
+      </div>
+      <!-- search form -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="جستجو">
+          <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>
+<ul class="sidebar-menu" data-widget="tree">
+    <li class="header">منو</li>
+    @can('manage')
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-users text-aqua"></i> <span>مدیریت کاربران</span>
+        <span class="pull-left-container">
+          <i class="fa fa-angle-right pull-left"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.users') }}"><i class="fa fa-circle-o"></i>لیست کاربران</a></li>
+      </ul>
+    </li>
+    @endcan
+    @can('manage')
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-id-card text-aqua"></i> <span>کدهای معرف</span>
+        <span class="pull-left-container">
+          <i class="fa fa-angle-right pull-left"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.invites') }}"><i class="fa fa-circle-o"></i>لیست کدها</a></li>
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.invites.create') }}"><i class="fa fa-circle-o"></i>ایجاد کد جدید</a></li>
+      </ul>
+    </li>
+    @endcan
+    @can('manage')
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-map-marker text-aqua"></i> <span>مدیریت کلانشهرها</span>
+        <span class="pull-left-container">
+          <i class="fa fa-angle-right pull-left"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.capitals') }}"><i class="fa fa-circle-o"></i>لیست کلانشهرها</a></li>
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.capitals.create') }}"><i class="fa fa-circle-o"></i>ایجاد کلانشهر جدید</a></li>
+      </ul>
+    </li>
+    @endcan
+    @can('manage')
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-balance-scale text-aqua"></i> <span>مدیریت کمیسیون ها</span>
+        <span class="pull-left-container">
+          <i class="fa fa-angle-right pull-left"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.comisions') }}"><i class="fa fa-circle-o"></i>لیست کمیسیون ها</a></li>
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.comisions.create') }}"><i class="fa fa-circle-o"></i>ایجاد کمیسیون جدید</a></li>
+      </ul>
+    </li>
+    @endcan
+    @can('member')
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-send text-aqua"></i> <span>مدیریت پیام ها</span>
+        <span class="pull-left-container">
+          <i class="fa fa-angle-right pull-left"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.messages.received') }}"><i class="fa fa-circle-o"></i>پیام های دریافتی</a></li>
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.messages.sent') }}"><i class="fa fa-circle-o"></i>پیام های ارسالی</a></li>
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.messages.create') }}"><i class="fa fa-circle-o"></i>ایجاد پیام جدید</a></li>
+      </ul>
+    </li>
+    @endcan
+    @can('note') 
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-pencil text-aqua"></i> <span>مدیریت یادداشت ها</span>
+        <span class="pull-left-container">
+          <i class="fa fa-angle-right pull-left"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.notes') }}"><i class="fa fa-circle-o"></i>یادداشت های من</a></li>
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.notes.create') }}"><i class="fa fa-circle-o"></i>ایجاد یادداشت جدید</a></li>
+      </ul>
+    </li>
+    @endcan
+    @can('report')
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-newspaper-o text-aqua"></i> <span>مدیریت اخبار</span>
+        <span class="pull-left-container">
+          <i class="fa fa-angle-right pull-left"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.articles') }}"><i class="fa fa-circle-o"></i>وضعیت اخبار</a></li>
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.articles.create') }}"><i class="fa fa-circle-o"></i>ایجاد خبر جدید</a></li>
+      </ul>
+    </li>
+    @endcan
+    @can('commentor')
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-comment-o text-aqua"></i> <span>مدیریت نظرات</span>
+        <span class="pull-left-container">
+          <i class="fa fa-angle-right pull-left"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.comments.unconfirmed') }}"><i class="fa fa-circle-o"></i>نظرات تایید نشده</a></li>
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.comments.confirmed') }}"><i class="fa fa-circle-o"></i>نظرات تایید شده</a></li>
+      </ul>
+    </li>
+    @endcan
+    @can('manage')
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-image text-aqua"></i> <span>مدیریت گالری تصاویر</span>
+        <span class="pull-left-container">
+          <i class="fa fa-angle-right pull-left"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.albums') }}"><i class="fa fa-circle-o"></i>وضعیت آلبوم ها</a></li>
+        <li class="active"><a href="{{ route(auth()->user()->role->title.'.albums.create') }}"><i class="fa fa-circle-o"></i>ایجاد آلبوم جدید</a></li>
+      </ul>
+    </li>
+    
+    <li><a href="{{ route(auth()->user()->role->title.'.heading') }}"><i class="fa fa-header text-aqua"></i> <span>تیتر یک</span></a></li>
+    <li><a href="{{ route(auth()->user()->role->title.'.videos') }}"><i class="fa fa-video-camera text-aqua"></i> <span>مدیریت ویدئوها</span></a></li>
+    @endcan
+    <li><a href="{{ route(auth()->user()->role->title.'.mycomments') }}"><i class="fa fa-comments text-aqua"></i> <span>نظرات من</span></a></li>
+    <li><a href="{{ route(auth()->user()->role->title.'.profile') }}"><i class="fa fa-user-circle text-aqua"></i> <span>مشاهده پروفایل</span></a></li>
+    <li><a href="{{ route(auth()->user()->role->title.'.logout') }}"><i class="fa fa-power-off text-red"></i> <span>خروج</span></a></li>
+  </ul>
+</section>
+<!-- /.sidebar -->
+</aside>
