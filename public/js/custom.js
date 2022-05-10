@@ -188,23 +188,22 @@ const getCityDetail = (city) => {
    * city_website_url,
    */
 
-  $.ajax({
-    type: "POST",
-    url: id+"/cities/" ,
-    success: (res) => {
-      // $("#city-name").html(res.city_name);
-      // $("#city-people-amount").html(res.city_people_amount);
-      // $("#city-places").html(res.city_places);
-      // $("#city-address").html(res.city_address);
-      // $("#city-tel").html(res.city_tel);
-      // $("#city-website").html(res.city_website);
-      // $("#city-website-url").prop("href", res.city_website_url);
-      console.log(res);
-    },
-    error: (err) => {
-      console.log("Get City Detail Error: ", err);
-    },
-  });
+  // $.ajax({
+  //   type: "GET",
+  //   url: "/cities/" + id,
+  //   success: (res) => {
+  //     $("#city-name").html(res.city_name);
+  //     $("#city-people-amount").html(res.city_people_amount);
+  //     $("#city-places").html(res.city_places);
+  //     $("#city-address").html(res.city_address);
+  //     $("#city-tel").html(res.city_tel);
+  //     $("#city-website").html(res.city_website);
+  //     $("#city-website-url").prop("href", res.city_website_url);
+  //   },
+  //   error: (err) => {
+  //     console.log("Get City Detail Error: ", err);
+  //   },
+  // });
 };
 
 $(document).ready(function () {
