@@ -7,6 +7,7 @@
     {{-- <link rel="stylesheet" href="/css/all.css" /> --}}
     <link rel="stylesheet" href="/css/bootstrap.rtl.min.css" />
     <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/persian-datepicker.min.css">
     <link rel="stylesheet" href="/css/fontiran.css" />
     <link rel="stylesheet" href="/css/styles.css" />  
       @yield('styles')
@@ -582,6 +583,8 @@
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/swiper-bundle.min.js"></script>
+    <script src="./js/persian-date.min.js"></script>
+    <script src="./js/persian-datepicker.min.js"></script>
     <script src="/js/custom.js"></script>
       @yield('scripts')
 

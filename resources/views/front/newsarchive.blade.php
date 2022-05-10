@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+ 
 @section('styles')
 <link rel="stylesheet" href="./css/persian-datepicker.min.css">
 <link rel="stylesheet" href="./css/pages/news.css">
