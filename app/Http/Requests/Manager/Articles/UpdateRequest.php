@@ -24,7 +24,7 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'pngfile' => 'required|mimes:png|max:600',
+            'pngfile' => 'required|mimes:png,jpg,jpeg|max:600',
             'title' => 'required|min:10|max:220',
             'description' => 'required|min:50|max:400',
             'comision' => 'required|exists:comisions,id',
