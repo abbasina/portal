@@ -22,7 +22,7 @@
                 @include('managerpanel.dashboard')
                 <div class="col-12 col-lg-9">
                     <a href="{{route(auth()->user()->role->title.'.articles')}}">
-                        <button class="btn btn-green">بازگشت به آرشیو اخبار</button>
+                        <button class="btn btn-success">بازگشت به آرشیو اخبار</button>
                     </a><hr>
                     <div class="card">
                         <div class="card-body">
@@ -87,7 +87,7 @@
 
                                     </div>
                                 </div><hr>
-                                <input type="submit" class="w-100 btn btn-lg btn-green py-3" value="ایجاد خبر جدید">
+                                <input type="submit" class="w-100 btn btn-lg btn-success py-3" value="ایجاد خبر جدید">
                                
                             </form>
 

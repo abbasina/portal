@@ -20,7 +20,7 @@
                 @include('managerpanel.dashboard')
                 <div class="col-12 col-lg-9">
                     <a href="{{route(auth()->user()->role->title.'.users')}}">
-                        <button class="btn btn-green mb-3">بازگشت به لیست کاربران</button>
+                        <button class="btn btn-success mb-3">بازگشت به لیست کاربران</button>
                     </a>
                     <div class="card">
                         <div class="card-body">
@@ -69,7 +69,7 @@
 
                                     </div>
                                 </div>
-                                <input type="submit" class="w-50 btn btn-lg btn-green py-3" value=" بروزرسانی کاربر ">
+                                <input type="submit" class="w-50 btn btn-lg btn-success py-3" value=" بروزرسانی کاربر ">
                                
                             </form>
 

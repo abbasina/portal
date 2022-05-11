@@ -23,7 +23,7 @@
                 @include('managerpanel.dashboard')
                 <div class="col-12 col-lg-9">
                     <a href="{{route(auth()->user()->role->title.'.notes')}}">
-                        <button class="btn btn-green">بازگشت به آرشیو یادداشت ها</button>
+                        <button class="btn btn-success">بازگشت به آرشیو یادداشت ها</button>
                     </a><hr>
                     <div class="card">
                         <div class="card-body">
@@ -66,7 +66,7 @@
 
                                     </div>
                                 </div><hr>
-                                <input type="submit" class="w-100 btn btn-lg btn-green py-3" value="ایجاد یادداشت جدید">
+                                <input type="submit" class="w-100 btn btn-lg btn-success py-3" value="ایجاد یادداشت جدید">
                                
                             </form>
 

@@ -156,13 +156,183 @@ const cities = [
     namePosition: [20, 0],
     rectWidth: 100,
   },
+  {
+    id: 16,
+    name: "سیستان بلوچستان",
+    tooltipPosition: [320, -2250],
+    namePosition: [40, 0],
+    rectWidth: 120,
+  },
+  {
+    id: 21,
+    name: "کرمان",
+    tooltipPosition: [230, -2300],
+    namePosition: [-20.049, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 29,
+    name: "هرمزگان",
+    tooltipPosition: [230, -2200],
+    namePosition: [-15.049, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 17,
+    name: "فارس",
+    tooltipPosition: [120, -2300],
+    namePosition: [-20.049, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 7,
+    name: "بوشهر",
+    tooltipPosition: [30, -2300],
+    namePosition: [-20.049, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 23,
+    name: "کهگیلویه و بویراحمد",
+    tooltipPosition: [30, -2350],
+    namePosition: [50, 0],
+    rectWidth: 150,
+  },
+  {
+    id: 9,
+    name: "چهارمحال و بختیاری",
+    tooltipPosition: [30, -2400],
+    namePosition: [50, 0],
+    rectWidth: 150,
+  },
+  {
+    id: 13,
+    name: "خوزستان",
+    tooltipPosition: [-20, -2400],
+    namePosition: [-15, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 26,
+    name: "لرستان",
+    tooltipPosition: [-20, -2450],
+    namePosition: [-17, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 6,
+    name: "ایلام",
+    tooltipPosition: [-80, -2450],
+    namePosition: [-20, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 22,
+    name: "کرمانشاه",
+    tooltipPosition: [-80, -2500],
+    namePosition: [-10, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 20,
+    name: "کردستان",
+    tooltipPosition: [-80, -2530],
+    namePosition: [-10, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 2,
+    name: "آذربایجان غربی",
+    tooltipPosition: [-120, -2600],
+    namePosition: [25, 0],
+    rectWidth: 120,
+  },
+  {
+    id: 1,
+    name: "آذربایجان شرقی",
+    tooltipPosition: [-80, -2600],
+    namePosition: [25, 0],
+    rectWidth: 120,
+  },
+  {
+    id: 3,
+    name: "اردبیل",
+    tooltipPosition: [-30, -2600],
+    namePosition: [-20, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 25,
+    name: "گیلان",
+    tooltipPosition: [0, -2580],
+    namePosition: [-20, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 18,
+    name: "قزوین",
+    tooltipPosition: [0, -2550],
+    namePosition: [-20, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 14,
+    name: "زنجان",
+    tooltipPosition: [-20, -2550],
+    namePosition: [-20, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 19,
+    name: "قم",
+    tooltipPosition: [55, -2500],
+    namePosition: [-25, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 28,
+    name: "اراک",
+    tooltipPosition: [5, -2500],
+    namePosition: [-25, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 30,
+    name: "همدان",
+    tooltipPosition: [-25, -2500],
+    namePosition: [-15, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 4,
+    name: "اصفهان",
+    tooltipPosition: [55, -2450],
+    namePosition: [-15, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 31,
+    name: "یزد",
+    tooltipPosition: [200, -2450],
+    namePosition: [-25, 0],
+    rectWidth: 60,
+  },
+  {
+    id: 15,
+    name: "سمنان",
+    tooltipPosition: [120, -2500],
+    namePosition: [-15, 0],
+    rectWidth: 60,
+  },
 ];
-cities.forEach((city) =>
-  $(`#city-${city.id}`).click(() => getCityDetail(city))
+cities.forEach((city) => {
+  $(`#city-${city.id}`).hover(() => getCityDetail(city,false));
+$(`#city-${city.id}`).click(() => getCityDetail(city));
+    }
 );
 let oldCityId = 8; // tehran
 // get city detail from map svg onclick
-const getCityDetail = (city) => {
+const getCityDetail = (city,getResult = true) => {
   $(`#city-${oldCityId}`).find("path").attr("fill", "#fff");
   const cityTooltip = $("#city-tooltip");
   const tooltipPosition =
@@ -176,6 +346,9 @@ const getCityDetail = (city) => {
   $(`#city-${city.id}`).find("path").attr("fill", "#e5e5e5");
   oldCityId = city.id;
 
+
+if(getResult) {
+  
   /**
    * Uncomment ajax for query, and get result
    * response params:
@@ -187,23 +360,26 @@ const getCityDetail = (city) => {
    * city_website,
    * city_website_url,
    */
+  $.ajax({
+    type: "GET",
+    url: oldCityId+"/cities/",
+    success: (res) => {
+      
+      $("#city-name").html(res.city_name);
+      $("#city-people-amount").html(res.city_people_amount);
+      $("#city-places").html(res.city_places);
+      $("#city-address").html(res.city_address);
+      $("#city-tel").html(res.city_tel);
+      $("#city-website").html(res.city_website);
+      $("#city-website-url").prop("href", res.city_website_url);
+      $("#imageUrl").prop("src", '/capitals/'+res.imageUrl);
+    },
+    error: (err) => {
+      console.log("Get City Detail Error: ", err);
+    },
+  });
+}
 
-  // $.ajax({
-  //   type: "GET",
-  //   url: "/cities/" + id,
-  //   success: (res) => {
-  //     $("#city-name").html(res.city_name);
-  //     $("#city-people-amount").html(res.city_people_amount);
-  //     $("#city-places").html(res.city_places);
-  //     $("#city-address").html(res.city_address);
-  //     $("#city-tel").html(res.city_tel);
-  //     $("#city-website").html(res.city_website);
-  //     $("#city-website-url").prop("href", res.city_website_url);
-  //   },
-  //   error: (err) => {
-  //     console.log("Get City Detail Error: ", err);
-  //   },
-  // });
 };
 
 $(document).ready(function () {
@@ -223,6 +399,7 @@ $(document).ready(function () {
       nextButtonClass = "." + nextButton.attr("class").replace(/\s/g, ".");
     }
     new Swiper(swiper, {
+      direction: $(swiper).data('swiper-direction') ?? 'horizontal',
       speed: 400,
       spaceBetween: 20,
       loop: true,

@@ -1,8 +1,9 @@
-<aside class="main-sidebar">
+<aside class="main-sidebar fixed">
     <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
+    <div class="slimScrollDiv fixed">
+    <section class="sidebar fixed">
       <!-- Sidebar user panel -->
-      <div class="user-panel">
+      <div class="user-panel fixed">
         <div class="pull-right image">
           <img src="/panel/dist/img/user2-160x160.svg" class="img-circle" alt="User Image">
         </div>
@@ -21,7 +22,7 @@
               </span>
         </div>
       </form>
-<ul class="sidebar-menu" data-widget="tree">
+      <ul class="sidebar-menu" data-widget="tree">
     <li class="header">منو</li>
     @can('manage')
     <li class="treeview">
@@ -157,5 +158,6 @@
     <li><a href="{{ route(auth()->user()->role->title.'.logout') }}"><i class="fa fa-power-off text-red"></i> <span>خروج</span></a></li>
   </ul>
 </section>
+    </div>
 <!-- /.sidebar -->
 </aside>

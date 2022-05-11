@@ -19,7 +19,7 @@
                 @include('managerpanel.dashboard')
                 <div class="col-12 col-lg-9">
                     <a href="{{route(auth()->user()->role->title.'.albums')}}">
-                        <button class="btn btn-green mb-2">بازگشت به لیست آلبومها</button>
+                        <button class="btn btn-success mb-2">بازگشت به لیست آلبومها</button>
                     </a>
                     <div class="card">
                         <div class="card-body">
@@ -44,7 +44,7 @@
 
                                     </div>
                                 </div>
-                                <button class="w-100 btn btn-lg btn-green py-3">ایجاد آلبوم جدید</button>
+                                <button class="w-100 btn btn-lg btn-success py-3">ایجاد آلبوم جدید</button>
                                
                             </form>
 

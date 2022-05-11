@@ -19,7 +19,7 @@
                 @include('managerpanel.dashboard')
                 <div class="col-12 col-lg-9">
                     <a href="{{redirect()->back()->getTargetUrl()}}">
-                        <button class="btn btn-green">بازگشت</button>
+                        <button class="btn btn-success">بازگشت</button>
                     </a>
                     <div class="card">
                         <div class="card-body">
@@ -43,7 +43,7 @@
 
                                     
                                 </div>
-                                <button class="w-100 btn btn-lg btn-green py-3">ویرایش پیام</button>
+                                <button class="w-100 btn btn-lg btn-success py-3">ویرایش پیام</button>
                                
                             </form>
 

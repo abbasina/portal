@@ -24,7 +24,15 @@ class storeRquest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:2|max:40|unique:capitals,name'
+            'title' => 'required|min:2|max:40|unique:capitals,name',
+            'city_people_amount' => 'required|min:2|max:100',
+            'city_places' => 'required|min:2',
+            'city_address' => 'required|min:2',
+            'city_tel' => 'required|numeric',
+            'city_website' => 'required|min:2',
+            'city_website_url' => 'required|min:2',
+            'imageUrl' => 'required|mimes:png,jpg|max:5000',
+            'Ostan' => 'required|numeric',
         ];
     }
 }

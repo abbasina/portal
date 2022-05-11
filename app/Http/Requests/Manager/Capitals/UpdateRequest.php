@@ -24,7 +24,16 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:2|max:40|unique:capitals,name,'.$this->request->get('capital-id').'',
+            'title' => 'required|min:2|max:40|unique:capitals,name,'.$this->capital_id,
+            'city_people_amount' => 'required|min:2|max:100',
+            'city_places' => 'required|min:2',
+            'city_address' => 'required|min:2',
+            'city_tel' => 'required|numeric',
+            'city_website' => 'required|min:2',
+            'city_website_url' => 'required|min:2',
+            'imageUrl' => 'mimes:png,jpg,svg',
+            'Ostan' => 'required|numeric',
+
         ];
     }
 }

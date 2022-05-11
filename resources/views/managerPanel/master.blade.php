@@ -343,23 +343,21 @@
 <script src="/panel/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="/panel/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/panel/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
 <script src="/panel/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="/panel/dist/js/adminlte.min.js"></script>
-<!-- Sparkline -->
-<script src="/panel/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-<!-- jvectormap  -->
-<script src="/panel/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="/panel/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<!-- SlimScroll -->
-<script src="/panel/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- ChartJS -->
-<script src="/panel/bower_components/Chart.js/Chart.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/panel/dist/js/pages/dashboard2.js"></script>
-<!-- AdminLTE for demo purposes -->
+
 <script src="/panel/dist/js/demo.js"></script>
 @yield('scripts')
+<script>
+  $(function(){
+   $('.slimScrollDiv').slimScroll({
+     
+   });
+ });
+ 
+ </script>
 </body>
 </html>

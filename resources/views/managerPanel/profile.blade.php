@@ -1,4 +1,7 @@
 @extends('managerpanel.master')
+@section('styles')
+<link rel="stylesheet" href="/panel/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+@endsection
 @section('pageTitle')
 پروفایل کاربر
 @endsection
@@ -23,8 +26,11 @@
                     <div class="card-body">
                         <h5 class="fw-bold mt-5 fs-16">اطلاعات کاربری</h5>
   
-                        <table class="table table-striped with-padding"> 
-                            <tbody>
+                        <div class="box">
+                            <div class="box-body">
+
+                            <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                                        <tbody>
 
                                 <tr>
                                     <td>نام و نام خانوادگی</td>
@@ -44,6 +50,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                            </div></div>
                     </div>
                 </div>
             </div>

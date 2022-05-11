@@ -8,40 +8,39 @@
       <div class="row flex-column-reverse flex-lg-row">
         <div class="col-12 col-lg-6">
           <img
-            src="./img/city.svg"
+            id="imageUrl"
+            src="/capitals/{{ $tehran->imageUrl }}"
             alt="Image"
             loading="lazy"
             class="img-fluid"
           />
-          <h5 id="city-name" class="mt-3 fw-bold">کلان شهر تهران</h5>
+          <h5 id="city-name" class="mt-3 fw-bold">کلان شهر {{ $tehran->name }}</h5>
           <ul class="green-list">
             <li class="fs-14">
               <span class="fw-bold">جمعیت: </span>
-              <span id="city-people-amount"> 10 میلیون </span>
+              <span id="city-people-amount"> {{ $tehran->city_people_amount }} </span>
             </li>
             <li class="fs-14">
               <span class="fw-bold">مناطق دیدنی: </span>
               <span id="city-places">
-                برج میلاد، برج آزادی، باغ نگارستان، باغ ملی، برج میلاد،
-                برج آزادی، باغ نگارستان، باغ ملی، برج میلاد، برج آزادی،
-                باغ نگارستان، باغ ملی
+               {{$tehran->city_places}}
               </span>
             </li>
             <li class="fs-14">
               <a href="#">
                 <span class="fw-bold">آدرس: </span>
                 <span id="city-address">
-                  تهران، میدان ونک، خیابان ولیعصر، خیابان خدامی، پلاک ۳۴
+                  {{ $tehran->city_address }}
                 </span>
               </a>
             </li>
             <li class="fs-14">
               <span class="fw-bold">تلفن: </span>
-              <span id="city-tel"> ۹۸۷۶۵۴۳۲-۰۲۱ </span>
+              <span id="city-tel"> {{ $tehran->city_tel }} </span>
             </li>
             <li class="fs-14">
               <span class="fw-bold">وبسایت: </span>
-              <a href="#" id="city-website"> www.sample.com </a>
+              <a href="{{ $tehran->city_website_url }}" id="city-website"> {{ $tehran->city_website }} </a>
             </li>
           </ul>
         </div>

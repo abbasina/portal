@@ -22,7 +22,7 @@
                 @include('managerpanel.dashboard')
                 <div class="col-12 col-lg-9">
                     <a href="{{route(auth()->user()->role->title.'.invites')}}">
-                        <button class="btn btn-green mb-1">بازگشت به لیست کدهای معرف</button>
+                        <button class="btn btn-success mb-1">بازگشت به لیست کدهای معرف</button>
                     </a>
                     <div class="card">
                         <div class="card-body">
@@ -44,7 +44,7 @@
                                         
                                     </select>
                                     </div>
-                                <button class="w-100 btn btn-lg btn-green py-3  mt-3">ایجاد کدمعرف جدید</button>
+                                <button class="w-100 btn btn-lg btn-success py-3  mt-3">ایجاد کدمعرف جدید</button>
                                
                             </form>
 

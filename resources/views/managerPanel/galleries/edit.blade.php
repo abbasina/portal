@@ -19,7 +19,7 @@
                 @include('managerpanel.dashboard')
                 <div class="col-12 col-lg-9">
                     <a href="{{route(auth()->user()->role->title.'.capitals')}}">
-                        <button class="btn btn-green">بازگشت به لیست کلانشهرها</button>
+                        <button class="btn btn-success">بازگشت به لیست کلانشهرها</button>
                     </a>
                     <div class="card">
                         <div class="card-body">
@@ -39,7 +39,7 @@
 
                                     </div>
                                 </div>
-                                <button class="w-100 btn btn-lg btn-green py-3">بروزرسانی کلانشهر</button>
+                                <button class="w-100 btn btn-lg btn-success py-3">بروزرسانی کلانشهر</button>
                                
                             </form>
 

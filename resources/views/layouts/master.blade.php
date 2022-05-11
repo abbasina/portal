@@ -7,11 +7,10 @@
     {{-- <link rel="stylesheet" href="/css/all.css" /> --}}
     <link rel="stylesheet" href="/css/bootstrap.rtl.min.css" />
     <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./css/persian-datepicker.min.css">
     <link rel="stylesheet" href="/css/fontiran.css" />
     <link rel="stylesheet" href="/css/styles.css" />  
       @yield('styles')
-      <link rel="stylesheet" href="/css/pages/index.css" />
+    
     
     <title>@yield('pageTitle')</title>
   </head>

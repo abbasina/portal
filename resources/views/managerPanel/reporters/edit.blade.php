@@ -39,7 +39,7 @@
 
                                     </div>
                                 </div>
-                                <button class="w-100 btn btn-lg btn-green py-3">بروزرسانی اطلاعات خبرنگار</button>
+                                <button class="w-100 btn btn-lg btn-success py-3">بروزرسانی اطلاعات خبرنگار</button>
                                
                             </form>
 

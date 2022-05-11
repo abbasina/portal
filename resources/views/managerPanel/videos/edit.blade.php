@@ -20,7 +20,7 @@
                 @include('managerpanel.dashboard')
                 <div class="col-12 col-lg-9">
                     <a href="{!! url()->previous(); !!}  ">
-                        <button class="btn btn-green mb-3">بازگشت</button>
+                        <button class="btn btn-success mb-3">بازگشت</button>
                     </a>
                     <div class="card">
                         <div class="card-body">
@@ -63,7 +63,7 @@
                                         @endforeach
 
                                     </div>
-                                <input type="submit" class="w-50 btn btn-lg btn-green py-3" value="بروزرسانی ویدئوها">
+                                <input type="submit" class="w-50 btn btn-lg btn-success py-3" value="بروزرسانی ویدئوها">
                                
                             </form>
 

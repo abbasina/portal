@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Album;
 use App\Article;
+use App\Capital;
 use App\Comment;
 use App\Gallery;
 use App\heading;
@@ -21,6 +22,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $tehran=Capital::where('Ostan',8)->first();
         $hotnews=Article::orderBy("created_at")->take(5)
         ->join('comisions', 'articles.comision_id', '=', 'comisions.id')
         ->select('articles.*','comisions.name AS comisionname')
@@ -37,7 +39,7 @@ class HomeController extends Controller
         
         
         
-        return view('front.index',compact('hotnews','topviews','videos','heading','notes'));
+        return view('front.index',compact('hotnews','topviews','videos','heading','notes','tehran'));
         
     }
     public function search()
@@ -80,7 +82,18 @@ class HomeController extends Controller
 
     public function cities($id)
     {
-        return($id);
+        $capital=Capital::where('Ostan',$id)->first();
+        return response([
+            'city_name' => 'کلانشهر '.$capital->name,
+            'city_people_amount' => $capital->city_people_amount,
+            'city_places' => $capital->city_places,
+            'city_address' => $capital->city_address,
+            'city_tel' => $capital->city_tel,
+            'city_website' => $capital->city_website,
+            'city_website_url' => $capital->city_website_url,
+            'imageUrl' => $capital->imageUrl,
+        ]);
+        
     }
 
     /**

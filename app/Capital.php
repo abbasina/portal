@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Capital extends Model
 {
-    protected $fillable=['name'];
+    protected $fillable=['name','Ostan','city_people_amount','city_places','city_address','city_tel','city_website','city_website_url','imageUrl'];
     public function articles()
     {
         return $this->hasMany(Article::class);

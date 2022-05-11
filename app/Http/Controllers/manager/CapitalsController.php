@@ -21,8 +21,20 @@ class CapitalsController extends Controller
    }
       public function store(storeRquest $request){
         $validatedData=$request->validated();
+
+        $filename = time().$validatedData['imageUrl']->getClientOriginalName();
+        $request->imageUrl->move(base_path('public/capitals'), $filename);
+
        $createdcapital = Capital::create([
-          'name' => $validatedData['title']
+          'name' => $validatedData['title'],
+          'Ostan' => $validatedData['Ostan'],
+          'city_people_amount' => $validatedData['city_people_amount'],
+          'city_places' => $validatedData['city_places'],
+          'city_address' => $validatedData['city_address'],
+          'city_tel' => $validatedData['city_tel'],
+          'city_website' => $validatedData['city_website'],
+          'city_website_url' => $validatedData['city_website_url'],
+          'imageUrl' => $filename,
         ]);
         if(!$createdcapital){
           return back()->with('failed','کلانشهر افزوده نشد.');
@@ -44,10 +56,26 @@ class CapitalsController extends Controller
    }
    public function update(UpdateRequest $request,$capital_id){
     $validatedData=$request->validated();
+
     $capital=Capital::find($capital_id);
-    $updatedcapital=$capital->update([
+    $capital->update([
       'name' => $validatedData['title'],
+      'Ostan' => $validatedData['Ostan'],
+      'city_people_amount' => $validatedData['city_people_amount'],
+      'city_places' => $validatedData['city_places'],
+      'city_address' => $validatedData['city_address'],
+      'city_tel' => $validatedData['city_tel'],
+      'city_website' => $validatedData['city_website'],
+      'city_website_url' => $validatedData['city_website_url'],
+      
     ]);
+    if(isset($validatedData['imageUrl'])!=null){
+      $filename = time().$validatedData['imageUrl']->getClientOriginalName();
+      $request->imageUrl->move(base_path('public/capitals'), $filename);
+      $updatedcapital=$capital->update([
+        'imageUrl' => $filename,
+      ]);
+      }
     if(!$updatedcapital){
       return back()->with('failed','کلانشهر ویرایش نشد.');
       }
