@@ -14,91 +14,97 @@
 @section('content')
     <main class="container">
      
-        <section class="mb-3">
+        <section class="">
             <div class="row g-3">
                 @include('managerpanel.dashboard')
                 <div class="col-12 col-lg-9">
                     <a href="{{route(auth()->user()->role->title.'.comisions')}}">
-                        <button class="btn btn-success mb-3">بازگشت به لیست کمیسیون ها</button>
+                        <button class="btn btn-success ">بازگشت به لیست کمیسیون ها</button>
                     </a>
+                    <br><br>
                     <div class="card">
                         <div class="card-body">
-
+                            <div class="box">
+                            <div class="box-body">
                             @include('layouts.errors')
 
-                            <form action="{{ route(auth()->user()->role->title.'.comisions.update',$comision->id) }}" method="POST" class="mb-4">
+                            <form action="{{ route(auth()->user()->role->title.'.comisions.editintro',$comision->id) }}" method="POST" class="mb-4" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
 
-                                <label class="mb-3">معرفی کمیسیون:</label>
-                                <div class="mb-3 bg-white rounded-12 border">
+                                <label class="">معرفی کمیسیون:</label>
+                                <div class="form-group">
                                     
-                                    <div class="input-group input-group-sm">
-                                        
-                                        <textarea class="form-control" name="introduce" id="introduce">{{ old('introduce')  }}</textarea>
-                                        <input type="hidden" name="comision_id" value="{{ $comision->id }}">
-
-                                    </div>
-                                </div>
-                                <div class="mb-3 bg-white rounded-12 border">
-                                    <div class="input-group input-group-sm">
-                                        <input type="text" row="6" name="boss" class="form-control border-0 py-3"
-                                            placeholder="نام رئیس کمیسیون" value="{{ $comision->boss }}">
+                                   
+                                    
+                                        <textarea name="introduce" id="introduce">{{ $comision->introduce  }}</textarea>
                                         
 
-                                    </div>
+                                    
                                 </div>
-                                <label class="d-block mb-3">تصویر رئیس کمیسیون</label>
-                                <input type="file" class="form-control-file mb-3" name="boss-image">
-                                <div class="mb-3 bg-white rounded-12 border">
-                                    <div class="input-group input-group-sm">
-                                        <textarea row="6" name="boss-bio" class="form-control border-0 py-3"
-                                            placeholder="بیوگرافی رئیس کمیسیون" value="{{ $comision->name }}"></textarea>
+                                <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="">نام رئیس کمیسیون</label>
+                                        <input type="text" row="6" name="boss" class="form-control"
+                                             value="{{ $comision->boss }}">
                                         
 
-                                    </div>
+                                    
                                 </div>
-                                <div class="mb-3 bg-white rounded-12 border">
-                                    <div class="input-group input-group-sm">
-                                        <input type="text" row="6" name="chief" class="form-control border-0 py-3"
-                                            placeholder="نام دبیر کمیسیون" value="{{ $comision->chief }}">
-                                        
-
-                                    </div>
+                                <div class="form-group">
+                                <label>تصویر رئیس کمیسیون</label>
+                                <input type="file" class="form-control -file" name="boss_image">
                                 </div>
-                                <label class="d-block mb-3">تصویر دبیر کمیسیون</label>
-                                <input type="file" class="form-control-file mb-3" name="chief-image">
-                                <div class="mb-3 bg-white rounded-12 border">
-                                    <div class="input-group input-group-sm">
-                                        <textarea row="6" name="chief-bio" class="form-control border-0 py-3"
-                                            placeholder="بیوگرافی دبیر کمیسیون" value="{{ $comision->name }}"></textarea>
-                                        
-
-                                    </div>
-                                </div>
-
-
-                                <div class="mb-3 bg-white rounded-12">
-                                    <div class="input-group input-group-sm">
-                                        <form method="POST" action="{{ route('gallery.store') }}" enctype="multipart/form-data"  class="mt-3 mb-3">
-                                            @include('layouts.errors')
-                                            <div class="form-group d-inline">
-                                                <label for="">کمیته ها</label><br>
-                                                <input type="file" name="image[]"  accept="image/png, image/jpeg, image/jpg, image/gif" multiple/><br>
-                                                <input type="text" name="title" placeholder="توضیح عکس(اختیاری)"/>
-
-                                                <input type="hidden" name="album_id" value="{">
-                
-                                                {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-success" style="margin-bottom: 0px;"> آپلود تصویر</button>
-                                            </div>
-                                        </form>
-
-                                    </div>
-                                </div>
-                                <button class="w-100 btn btn-lg btn-success py-3">بروزرسانی معرفی کمیسیون</button>
                                
+                                <div class="form-group">
+                                    <label class="">بیوگرافی رئیس کمیسیون</label>
+                                        <textarea rows="8" name="boss_bio" class="form-control"
+                                             >{{ $comision->boss_bio }}</textarea>
+                                        
+
+                                   
+                                </div>
+                                <div class="form-group">
+                                    <label class="">نام دبیر کمیسیون</label>
+                                        <input type="text"  name="chief" class="form-control"
+                                             value="{{ $comision->chief }}">
+                                        
+
+                                    
+                                </div>
+                                <div class="form-group">
+                                <label>تصویر دبیر کمیسیون</label>
+                                <input type="file" class="-file  form-control" name="chief_image">
+                                </div>
+                                <div class="form-group">
+                                    <label class="">بیوگرافی دبیر کمیسیون</label>
+                                        <textarea class="form-control" rows="8" name="chief_bio" class=" border-0 py-3"
+                                             >{{ $comision->chief_bio }}</textarea>
+                                        
+
+                                   
+                                </div>
+
+
+                                <button class="btn btn-success pull-left">بروزرسانی معرفی کمیسیون</button>
+                                </div>
+                                <div class="col-md-6">
+                                    @if($comision->boss_image!=null)
+                                    <div class="form-gruop w-100">
+                                    <label>تصویر ريیس کمیسیون</label><br>
+                                    <img src="/comisions/{{ $comision->boss_image }}">
+                                    </div><br>
+                                    @endif
+                                    @if($comision->boss_image!=null)
+                                    <div class="form-gruop">
+                                    <label>تصویر دبیر کمیسیون</label><br>
+                                    <img src="/comisions/{{ $comision->chief_image }}">
+                                    </div>
+                                    @endif
+                                </div>
                             </form>
+                            </div>
+                            </div>
 
                         </div>
                     </div>
@@ -113,7 +119,8 @@
     <script>
         CKEDITOR.replace('introduce',{
             filebrowserUploadUrl: "{{route('articles.ckeditor.upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form'
+            filebrowserUploadMethod: 'form',
+            language : "fa"
         })
     </script>
     

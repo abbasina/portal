@@ -100,6 +100,7 @@ Route::middleware(['auth','can:manage'])->prefix('managerpanel')->group(function
         Route::delete('{comision_id}/delete',[ComisionsController::class,'delete'])->name('manager.comisions.delete');
         Route::get('{comision_id}/edit',[ComisionsController::class,'edit'])->name('manager.comisions.edit');
         Route::get('{comision_id}/introduce',[ComisionsController::class,'introduce'])->name('manager.comisions.introduce');
+        Route::put('{comision_id}/editintro',[ComisionsController::class,'editintro'])->name('manager.comisions.editintro');
         Route::put('{comision_id}/update',[ComisionsController::class,'update'])->name('manager.comisions.update');
     });
     Route::prefix('messages')->group(function(){

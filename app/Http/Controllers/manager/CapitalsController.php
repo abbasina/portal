@@ -58,7 +58,7 @@ class CapitalsController extends Controller
     $validatedData=$request->validated();
 
     $capital=Capital::find($capital_id);
-    $capital->update([
+    $updatedcapital=$capital->update([
       'name' => $validatedData['title'],
       'Ostan' => $validatedData['Ostan'],
       'city_people_amount' => $validatedData['city_people_amount'],
@@ -72,7 +72,7 @@ class CapitalsController extends Controller
     if(isset($validatedData['imageUrl'])!=null){
       $filename = time().$validatedData['imageUrl']->getClientOriginalName();
       $request->imageUrl->move(base_path('public/capitals'), $filename);
-      $updatedcapital=$capital->update([
+      $capital->update([
         'imageUrl' => $filename,
       ]);
       }
